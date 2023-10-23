@@ -5,10 +5,8 @@ using UnityEngine.Playables;
 
 public class Timeline_Change : MonoBehaviour
 {
-    [SerializeField]
-    private Playable[] Directors;
-   
-    public GameObject[] Timelines;
+
+    [SerializeField] private PlayableDirector[] Directors;
 
 
     // Start is called before the first frame update
@@ -28,7 +26,7 @@ public class Timeline_Change : MonoBehaviour
         //Print the time of when the function is first called.
         Debug.Log("Started Coroutine at timestamp : " + Time.time);
 
-        //yield on a new YieldInstruction that waits for 5 seconds.
+        //yield on a new YieldInstruction that waits for 2 seconds.
         yield return new WaitForSeconds(2);
 
         //After we have waited 5 seconds print the time again.
