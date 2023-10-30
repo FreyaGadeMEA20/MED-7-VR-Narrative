@@ -14,41 +14,61 @@ public class TimelineManager : MonoBehaviour
 
     public void SwitchToTimelineA()
     {  
-        
-        // Load the new timeline using Resources.Load
-        string path =  "Sequence" + ct + "/Timeline" + ct + "Adirector";
-        currentTimeline = Resources.Load(path);
+    // Load the new timeline using Resources.Load
+    string path = "Sequence" + ct + "/Timeline" + ct + "Adirector";
+    Object loadedObject = Resources.Load(path);
 
-        // Stop the currently playing timeline
-        currentTimeline.Stop();
-        currentTimeline.gameObject.SetActive(false);
+    if (loadedObject != null)
+    {
+        currentTimeline = loadedObject as PlayableDirector; // Cast the loaded object to PlayableDirector
 
-
-        nextTimeline.gameObject.SetActive(true);
-        nextTimeline.Play();
-        if (nextTimeline = null)
+        if (currentTimeline != null)
         {
-            Debug.LogError("Timeline not found at path: " + path);
+            // Stop the currently playing timeline
+            currentTimeline.Stop();
+            currentTimeline.gameObject.SetActive(false);
+
+            nextTimeline.gameObject.SetActive(true);
+            nextTimeline.Play();
+        }
+        else
+        {
+            Debug.LogError("Loaded object is not a PlayableDirector at path: " + path);
         }
     }
+    else
+    {
+        Debug.LogError("Timeline not found at path: " + path);
+    }
+    }
+
     public void SwitchToTimelineB()
     {
-        
-        // Load the new timeline using Resources.Load
-        string path =  "Sequence" + ct + "/Timeline" + ct + "Bdirector";
-        currentTimeline = Resources.Load(path);
+    // Load the new timeline using Resources.Load
+    string path = "Sequence" + ct + "/Timeline" + ct + "Bdirector";
+    Object loadedObject = Resources.Load(path);
 
-        // Stop the currently playing timeline
-        currentTimeline.Stop();
-        currentTimeline.gameObject.SetActive(false);
+    if (loadedObject != null)
+    {
+        currentTimeline = loadedObject as PlayableDirector; // Cast the loaded object to PlayableDirector
 
-
-        nextTimeline.gameObject.SetActive(true);
-        nextTimeline.Play();
-
-        if (nextTimeline = null)
+        if (currentTimeline != null)
         {
-            Debug.LogError("Timeline not found at path: " + path);
+            // Stop the currently playing timeline
+            currentTimeline.Stop();
+            currentTimeline.gameObject.SetActive(false);
+
+            nextTimeline.gameObject.SetActive(true);
+            nextTimeline.Play();
         }
+        else
+        {
+            Debug.LogError("Loaded object is not a PlayableDirector at path: " + path);
+        }
+    }
+    else
+    {
+        Debug.LogError("Timeline not found at path: " + path);
+    }
     }
 }
