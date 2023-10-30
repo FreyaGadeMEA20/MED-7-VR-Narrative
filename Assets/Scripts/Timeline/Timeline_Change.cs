@@ -5,16 +5,14 @@ using UnityEngine.Playables;
 
 public class Timeline_Change : MonoBehaviour
 {
-
-    public PlayableDirector Timelines;
-
+    TimelineManager TM;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(Buffer());
-        
-        Timelines = GetComponent<PlayableDirector>();
+        TM = GameObject.FindGameObjectWithTag("TimelineManager").GetComponent<TimelineManager>();
+        TM.currentTimeline.gameObject.SetActive(true);
+        TM.currentTimeline.Play();
     }
 
     // Update is called once per frame
@@ -41,13 +39,22 @@ public class Timeline_Change : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
 
-        if (Input.GetButton("Fire1") && Time.time < 15)
+        if (Input.GetKeyDown("Fire1") && Time.time < 15)
         {
             Debug.Log ("Logged input result A");
+            
+            TM.SwitchToTimelineA();
+            // Update the current node
+            TM.ct +=1;
+            TM.nt +=1;
         } 
         else if (Input.GetButton("Fire1") && Time.time > 15)
         {
             Debug.Log ("Logged input result B");
+            TM.SwitchToTimelineB();
+            // Update the current node
+            TM.ct +=1;
+            TM.nt +=1;
         }
     }
 }

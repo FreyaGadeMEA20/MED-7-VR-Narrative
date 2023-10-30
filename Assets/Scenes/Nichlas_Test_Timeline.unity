@@ -185,7 +185,7 @@ GameObject:
   - component: {fileID: 93472327}
   - component: {fileID: 93472326}
   m_Layer: 0
-  m_Name: Timeline1
+  m_Name: Timeline1A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -343,6 +343,57 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &143340326
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 143340328}
+  - component: {fileID: 143340327}
+  m_Layer: 0
+  m_Name: TimelineDirector0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!320 &143340327
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143340326}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 19e29f98f9865a34c909c43ffdef65e5, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 5057555840845005172, guid: 19e29f98f9865a34c909c43ffdef65e5, type: 2}
+    value: {fileID: 0}
+  m_ExposedReferences:
+    m_References: []
+--- !u!4 &143340328
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143340326}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &173192093
 GameObject:
   m_ObjectHideFlags: 0
@@ -695,6 +746,7 @@ GameObject:
   - component: {fileID: 766358859}
   - component: {fileID: 766358862}
   - component: {fileID: 766358863}
+  - component: {fileID: 766358864}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -832,10 +884,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3cf173debaf2dd4a89f32918c595d8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Timelines:
-  - {fileID: 29181400}
-  - {fileID: 93472325}
-  - {fileID: 1863902391}
+  Timelines: {fileID: 143340327}
+--- !u!114 &766358864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766358858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bdf2613f63b3284aace668ad0aade05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingNode:
+    nodeName: 
+    folderName: 
+    timelineName: 
+    director: {fileID: 143340327}
+    children: []
 --- !u!1 &1386993276
 GameObject:
   m_ObjectHideFlags: 0
@@ -1165,7 +1232,7 @@ GameObject:
   - component: {fileID: 1863902393}
   - component: {fileID: 1863902392}
   m_Layer: 0
-  m_Name: Timeline2
+  m_Name: Timeline1B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1220,3 +1287,4 @@ SceneRoots:
   - {fileID: 93472327}
   - {fileID: 1863902393}
   - {fileID: 173192098}
+  - {fileID: 143340328}
