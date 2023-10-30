@@ -11,8 +11,22 @@ public class Timeline_Change : MonoBehaviour
     void Start()
     {
         TM = GameObject.FindGameObjectWithTag("TimelineManager").GetComponent<TimelineManager>();
-        TM.currentTimeline.gameObject.SetActive(true);
-        TM.currentTimeline.Play();
+        // Load the new timeline using Resources.Load
+        string path = "../../Timelines/Sequence" + TM.ct + "/Timeline" + TM.ct + "ADirector.playable";
+        Object loadedObject = Resources.Load(path);
+
+        if (loadedObject != null)
+        {
+            TM.currentTimeline = loadedObject as PlayableDirector; // Cast the loaded object to PlayableDirector
+
+            //Stop the currently playing timeline
+            TM.currentTimeline.Play();
+            TM.currentTimeline.gameObject.SetActive(true);
+        }
+        else
+        {
+            Debug.LogError("Loaded object is not a PlayableDirector at path: " + path);
+        }
     }
 
     // Update is called once per frame
@@ -39,7 +53,7 @@ public class Timeline_Change : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
 
-        if (Input.GetKeyDown("Fire1") && Time.time < 15)
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time < 15)
         {
             Debug.Log ("Logged input result A");
             
@@ -48,7 +62,7 @@ public class Timeline_Change : MonoBehaviour
             TM.ct +=1;
             TM.nt +=1;
         } 
-        else if (Input.GetButton("Fire1") && Time.time > 15)
+        else if (Input.GetKeyDown(KeyCode.Space) && Time.time > 15)
         {
             Debug.Log ("Logged input result B");
             TM.SwitchToTimelineB();

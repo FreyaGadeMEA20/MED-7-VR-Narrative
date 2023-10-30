@@ -15,7 +15,7 @@ public class TimelineManager : MonoBehaviour
     public void SwitchToTimelineA()
     {  
     // Load the new timeline using Resources.Load
-    string path = "Sequence" + ct + "/Timeline" + ct + "Adirector";
+    string path = "Directors/Sequence" + ct + "/Timeline" + ct + "ADirector";
     Object loadedObject = Resources.Load(path);
 
     if (loadedObject != null)
@@ -45,7 +45,7 @@ public class TimelineManager : MonoBehaviour
     public void SwitchToTimelineB()
     {
     // Load the new timeline using Resources.Load
-    string path = "Sequence" + ct + "/Timeline" + ct + "Bdirector";
+    string path = "Directors/Sequence" + ct + "/Timeline" + ct + "BDirector";
     Object loadedObject = Resources.Load(path);
 
     if (loadedObject != null)
