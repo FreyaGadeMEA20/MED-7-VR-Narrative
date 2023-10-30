@@ -55,6 +55,7 @@ while(ret):
                     "No eyes detected", (70,70),
                     cv2.FONT_HERSHEY_PLAIN, 3,
                     (0,0,255),2)
+                    #print("no eyes detected-----")
                 elif not first_read and len(eyes)==0 :
                     #This will print on console and restart the algorithm
                     print("Blink detected--------------")
