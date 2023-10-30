@@ -5,34 +5,23 @@ using UnityEngine.Playables;
 
 public class Timeline_Change : MonoBehaviour
 {
-    TimelineManager TM;
+
+    public int switchTime;
+
+    public List<PlayableDirector> playableDirectors;
+    private PlayableDirector playableDirector_Current;
 
     // Start is called before the first frame update
     void Start()
     {
-        TM = GameObject.FindGameObjectWithTag("TimelineManager").GetComponent<TimelineManager>();
-        // Load the new timeline using Resources.Load
-        string path = "../../Timelines/Sequence" + TM.ct + "/Timeline" + TM.ct + "ADirector.playable";
-        Object loadedObject = Resources.Load(path);
-
-        if (loadedObject != null)
-        {
-            TM.currentTimeline = loadedObject as PlayableDirector; // Cast the loaded object to PlayableDirector
-
-            //Stop the currently playing timeline
-            TM.currentTimeline.Play();
-            TM.currentTimeline.gameObject.SetActive(true);
-        }
-        else
-        {
-            Debug.LogError("Loaded object is not a PlayableDirector at path: " + path);
-        }
+        playableDirector_Current = playableDirectors[0];
     }
 
     // Update is called once per frame
     void Update()
     {
         Debug.Log((int)Time.time);
+
         StartCoroutine(Timeline_Switch());
     }
 
@@ -53,22 +42,16 @@ public class Timeline_Change : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
 
-        if (Input.GetKeyDown(KeyCode.Space) && Time.time < 15)
+        if (Input.GetKeyDown(KeyCode.Space) && playableDirector_Current.time < switchTime)
         {
             Debug.Log ("Logged input result A");
+            playableDirector_Current = playableDirectors[1];
             
-            TM.SwitchToTimelineA();
-            // Update the current node
-            TM.ct +=1;
-            TM.nt +=1;
         } 
-        else if (Input.GetKeyDown(KeyCode.Space) && Time.time > 15)
+        else if (Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log ("Logged input result B");
-            TM.SwitchToTimelineB();
-            // Update the current node
-            TM.ct +=1;
-            TM.nt +=1;
+            playableDirector_Current = playableDirectors[2];
         }
     }
 }

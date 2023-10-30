@@ -149,13 +149,15 @@ PlayableDirector:
   m_GameObject: {fileID: 29181400}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 19e29f98f9865a34c909c43ffdef65e5, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 54c8ec22ff41a264bbfc6f565037c736, type: 2}
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
   m_SceneBindings:
   - key: {fileID: 5057555840845005172, guid: 19e29f98f9865a34c909c43ffdef65e5, type: 2}
+    value: {fileID: 173192094}
+  - key: {fileID: 5057555840845005172, guid: 54c8ec22ff41a264bbfc6f565037c736, type: 2}
     value: {fileID: 173192094}
   m_ExposedReferences:
     m_References: []
@@ -200,13 +202,15 @@ PlayableDirector:
   m_GameObject: {fileID: 93472325}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 5446292176953b542ba726dc17d02c95, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: fca7b10ee56f01a468fba6264f301960, type: 2}
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
   m_SceneBindings:
   - key: {fileID: -2350987800281743679, guid: 5446292176953b542ba726dc17d02c95, type: 2}
+    value: {fileID: 173192094}
+  - key: {fileID: -2350987800281743679, guid: fca7b10ee56f01a468fba6264f301960, type: 2}
     value: {fileID: 173192094}
   m_ExposedReferences:
     m_References: []
@@ -746,7 +750,6 @@ GameObject:
   - component: {fileID: 766358859}
   - component: {fileID: 766358862}
   - component: {fileID: 766358863}
-  - component: {fileID: 766358864}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -884,25 +887,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3cf173debaf2dd4a89f32918c595d8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Timelines: {fileID: 143340327}
---- !u!114 &766358864
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 766358858}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bdf2613f63b3284aace668ad0aade05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingNode:
-    nodeName: 
-    folderName: 
-    timelineName: 
-    director: {fileID: 143340327}
-    children: []
 --- !u!1 &1386993276
 GameObject:
   m_ObjectHideFlags: 0
@@ -1247,13 +1231,15 @@ PlayableDirector:
   m_GameObject: {fileID: 1863902391}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 73877d1c14dfdcd4da7ccb075b125ee2, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 42b971c25bc8e7d4eaced9f0fba690cc, type: 2}
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
   m_SceneBindings:
   - key: {fileID: -8645898721229218915, guid: 73877d1c14dfdcd4da7ccb075b125ee2, type: 2}
+    value: {fileID: 173192094}
+  - key: {fileID: -8645898721229218915, guid: 42b971c25bc8e7d4eaced9f0fba690cc, type: 2}
     value: {fileID: 173192094}
   m_ExposedReferences:
     m_References: []
