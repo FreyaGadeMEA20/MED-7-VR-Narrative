@@ -7,6 +7,8 @@ public class Timeline_Change : MonoBehaviour
 {
 
     public int switchTime;
+    public int buffer;
+    private int cd = 0;
 
     public List<PlayableDirector> playableDirectors;
     private PlayableDirector playableDirector_Current;
@@ -14,44 +16,49 @@ public class Timeline_Change : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playableDirector_Current = playableDirectors[0];
+        playableDirector_Current = playableDirectors[cd];
+        playableDirector_Current.Play();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log((int)Time.time);
-
-        StartCoroutine(Timeline_Switch());
+        //Debug.Log("The scene has been running for " + (int)Time.time + " seconds");
+        //Debug.Log("The timeline has been running for " + (int)playableDirector_Current.time + " seconds");
+        
+        if(playableDirector_Current.time > buffer && cd != 7 || cd != 8 || cd != 13 || cd != 14 || cd != 19 || cd != 20)
+        {
+            SwitchTimeline();
+        } else if (playableDirector_Current.time > buffer)
+        {
+            SwitchTimelineOBR();
+        }
     }
 
-    IEnumerator Buffer()
+    public void SwitchTimeline()
     {
-        //Print the time of when the function is first called.
-        Debug.Log("Started Coroutine at timestamp : " + Time.time);
-
-        //yield on a new YieldInstruction that waits for 2 seconds.
-        yield return new WaitForSeconds(2);
-
-        //After we have waited 2 seconds print the time again.
-        Debug.Log("Finished Coroutine at timestamp : " + Time.time +". Now ready for Input!");
-
-    }
-
-    IEnumerator Timeline_Switch()
-    {
-        yield return new WaitForSeconds(2);
-
         if (Input.GetKeyDown(KeyCode.Space) && playableDirector_Current.time < switchTime)
         {
-            Debug.Log ("Logged input result A");
-            playableDirector_Current = playableDirectors[1];
-            
-        } 
-        else if (Input.GetKeyDown(KeyCode.Space))
+            Debug.Log ("Timeline switched to" + cd + " at " + playableDirector_Current.time + " seconds");
+            cd += 1;
+            if (cd % 2 == 0)
+            {
+                cd +=1;
+            }
+            playableDirector_Current = playableDirectors[cd];
+            playableDirector_Current.Play();
+        }   
+        else if (Input.GetKeyDown(KeyCode.Space) && playableDirector_Current.time > switchTime)
         {
-            Debug.Log ("Logged input result B");
-            playableDirector_Current = playableDirectors[2];
+            Debug.Log ("Timeline switched to" + cd + " at " + playableDirector_Current.time + " seconds");
+            cd += 2;
+            playableDirector_Current = playableDirectors[cd];
+            playableDirector_Current.Play();
         }
+    }
+
+    public void SwitchTimelineOBR()
+    {
+
     }
 }
