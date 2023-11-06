@@ -27,17 +27,20 @@ public class PythonTest : MonoBehaviour
     {
         udpSocket.SendData("Sent From Unity: " + numToSendToPython.ToString());
         numToSendToPython++;
-        sendToPythonText.text = "Send Number: " + numToSendToPython.ToString();
+        //sendToPythonText.text = "Send Number: " + numToSendToPython.ToString();
+        print("Send Number: " + numToSendToPython.ToString());
     }
 
     private void Start()
     {
         udpSocket = FindObjectOfType<UdpSocket>();
-        sendToPythonText.text = "Send Number: " + numToSendToPython.ToString();
+        //sendToPythonText.text = "Send Number: " + numToSendToPython.ToString();
+        print("Send Number: " + numToSendToPython.ToString());
     }
 
     void Update()
     {
-        pythonRcvdText.text = tempStr;
+        //pythonRcvdText.text = tempStr;
+        print("Python RCVD Text : " + tempStr);
     }
 }

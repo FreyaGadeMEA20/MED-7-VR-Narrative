@@ -9,7 +9,9 @@
 # Example of a Python UDP server
 
 import UdpComms as U
+import BlinkDetector_CV2 as blink
 import time
+
 
 # Create UDP socket to use for sending (and receiving)
 sock = U.UdpComms(udpIP="127.0.0.1", portTX=8000, portRX=8001, enableRX=True, suppressWarnings=True)
@@ -18,6 +20,7 @@ i = 0
 
 while True:
     sock.SendData('Sent from Python: ' + str(i)) # Send this string to other application
+    print("No errors. Server working.")
     i += 1
 
     data = sock.ReadReceivedData() # read data
