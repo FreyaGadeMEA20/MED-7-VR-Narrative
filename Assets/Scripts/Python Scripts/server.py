@@ -12,29 +12,37 @@ import UdpComms as U
 import BlinkDetector_CV2 as blink
 import time
 
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+FACE_PATH = os.getenv('FACE_PATH')
+EYE_PATH = os.getenv('EYE_PATH')
+WEBCAM = os.getenv('WEBCAM')
 
 # Create UDP socket to use for sending (and receiving)
 sock = U.UdpComms(udpIP="127.0.0.1", portTX=8000, portRX=8001, enableRX=True, suppressWarnings=True)
 
 i = 0
 
-eyeT = blink.BlinkDetector('PATH to FACE','PATH to EYE','WEBCAM NUMBER')
+print("Initializing blink")
+eyeT = blink.BlinkDetector(FACE_PATH,EYE_PATH,WEBCAM)
 
 while True:
     eyeStatus = eyeT.StartFeed()
     
     if eyeStatus == 1:
-        sock.SendData('Sent from Python: ' + str(i)) # Send this string to other application
+        #sock.SendData('Sent from Python: ' + str(i)) # Send this string to other application
         print("No errors. Server working.")
     #i += 1
 
-    data = sock.ReadReceivedData() # read data
+    #data = sock.ReadReceivedData() # read data
 
-    if data != None: # if NEW data has been received since last ReadReceivedData function call
-        print(data) # print new received data
+    #if data != None: # if NEW data has been received since last ReadReceivedData function call
+    #    print(data) # print new received data
 
     if eyeStatus == 2:
         eyeT.Close()
         break
 
-    time.sleep(1)
+    time.sleep(.01)

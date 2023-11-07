@@ -17,16 +17,17 @@ class BlinkDetector():
         :param cam: Chosen camera
         """
 
-        self.face_cascade = cv2.CascadeClassifier(face_cascade)
-        self.eye_cascade = cv2.CascadeClassifier(eye_cascade)
+        self.face_cascade = cv2.CascadeClassifier(str(face_cascade))
+        self.eye_cascade = cv2.CascadeClassifier(str(eye_cascade))
 
-        self.cap = cv2.VideoCapture(cam)
+        self.cap = cv2.VideoCapture(int(cam))
         self.ret, self.img = self.cap.read()
- 
+
         #Variable store execution state
         self.first_read = True
         self.has_blinked = False
         self.counter=0
+        print("Blink initialised")
  
     def __del__(self):
         self.Close()
@@ -36,7 +37,7 @@ class BlinkDetector():
         cv2.destroyAllWindows()
 
     def StartFeed(self):
-        self.ret,self.img = self.cap.read()
+        self.ret, self.img = self.cap.read()
         #Converting the recorded image to grayscale
         gray = cv2.cvtColor(self.img, cv2.COLOR_BGR2GRAY)
         #Applying filter to remove impurities
@@ -46,28 +47,28 @@ class BlinkDetector():
         faces = self.face_cascade.detectMultiScale(gray, 1.1, 5,minSize=(100,100))
         if(len(faces)>0):
             for (x,y,w,h) in faces:
-                img = cv2.rectangle(img,(x,y),(x+w,y+h),(0,255,0),2)
+                self.img = cv2.rectangle(self.img,(x,y),(x+w,y+h),(0,255,0),2)
     
                 #roi_face is face which is input to eye classifier
                 roi_face = gray[y:y+h,x:x+w]
-                roi_face_clr = img[y:y+h,x:x+w]
+                roi_face_clr = self.img[y:y+h,x:x+w]
                 eyes = self.eye_cascade.detectMultiScale(roi_face,1.1,5,minSize=(20,20))
     
                 #Examining the length of eyes object for eyes
                 if len(eyes)>=2:
                     #Check if program is running for detection 
-                    if(self.first_read and not has_blinked):
+                    if(self.first_read and not self.has_blinked):
                         self.first_read = False
                     else:
-                        cv2.putText(img, 
+                        cv2.putText(self.img, 
                         "Eyes open!", (70,70), 
                         cv2.FONT_HERSHEY_PLAIN, 2,
                         (255,255,255),2)
-                        has_blinked = False
+                        self.has_blinked = False
                 else:
                     if self.first_read:
                         #To ensure if the eyes are present before starting
-                        cv2.putText(img, 
+                        cv2.putText(self.img, 
                         "No eyes detected", (70,70),
                         cv2.FONT_HERSHEY_PLAIN, 3,
                         (0,0,255),2)
@@ -77,18 +78,18 @@ class BlinkDetector():
                         print("Blink detected--------------")
                         #cv2.waitKey(3000)
                         self.first_read = True
-                        has_blinked=True
+                        self.has_blinked=True
                         self.counter += 1
                         return 1
                 
         else:
-            cv2.putText(img,
+            cv2.putText(self.img,
             "No face detected",(100,100),
             cv2.FONT_HERSHEY_PLAIN, 3, 
             (0,255,0),2)
     
         #Controlling the algorithm with keys
-        cv2.imshow('img',img)
+        cv2.imshow('img',self.img)
         a = cv2.waitKey(1)
         if(a==ord('q')):
             print(self.counter)
