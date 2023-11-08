@@ -5,8 +5,8 @@ using TMPro;
 
 public class PythonTest : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI pythonRcvdText = null;
-    [SerializeField] TextMeshProUGUI sendToPythonText = null;
+    //[SerializeField] TextMeshProUGUI pythonRcvdText = null;
+    //[SerializeField] TextMeshProUGUI sendToPythonText = null;
 
     string tempStr = "Sent from Python xxxx";
     int numToSendToPython = 0;
@@ -21,6 +21,7 @@ public class PythonTest : MonoBehaviour
     public void UpdatePythonRcvdText(string str)
     {
         tempStr = str;
+        print("Python RCVD Text : " + tempStr);
     }
 
     public void SendToPython()
@@ -41,6 +42,5 @@ public class PythonTest : MonoBehaviour
     void Update()
     {
         //pythonRcvdText.text = tempStr;
-        print("Python RCVD Text : " + tempStr);
     }
 }

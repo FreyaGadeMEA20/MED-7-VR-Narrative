@@ -32,11 +32,14 @@ while True:
     eyeStatus = eyeT.StartFeed()
     
     if eyeStatus == 1:
-        #sock.SendData('Sent from Python: ' + str(i)) # Send this string to other application
-        print("No errors. Server working.")
+        sock.SendData(str(eyeStatus)) # Send this string to other application
+        print("Blink detected. Sending to server")
+    elif eyeStatus == 2:
+        sock.SendData(str(eyeStatus))
+        print("Python Closed. Server disconnected")
     #i += 1
 
-    #data = sock.ReadReceivedData() # read data
+    data = sock.ReadReceivedData() # read data
 
     #if data != None: # if NEW data has been received since last ReadReceivedData function call
     #    print(data) # print new received data

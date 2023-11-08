@@ -44,20 +44,20 @@ class BlinkDetector():
         gray = cv2.bilateralFilter(gray,5,1,1)
     
         #Detecting the face for region of image to be fed to eye classifier
-        faces = self.face_cascade.detectMultiScale(gray, 1.1, 5,minSize=(100,100))
-        if(len(faces)>0):
+        faces = self.face_cascade.detectMultiScale(gray, 1.2, 5,minSize=(200,200))
+        if len(faces) > 0:
             for (x,y,w,h) in faces:
                 self.img = cv2.rectangle(self.img,(x,y),(x+w,y+h),(0,255,0),2)
     
                 #roi_face is face which is input to eye classifier
                 roi_face = gray[y:y+h,x:x+w]
                 roi_face_clr = self.img[y:y+h,x:x+w]
-                eyes = self.eye_cascade.detectMultiScale(roi_face,1.1,5,minSize=(20,20))
+                eyes = self.eye_cascade.detectMultiScale(roi_face,1.3,5,minSize=(20,20))
     
                 #Examining the length of eyes object for eyes
                 if len(eyes)>=2:
                     #Check if program is running for detection 
-                    if(self.first_read and not self.has_blinked):
+                    if self.first_read and not self.has_blinked:
                         self.first_read = False
                     else:
                         cv2.putText(self.img, 
@@ -91,10 +91,10 @@ class BlinkDetector():
         #Controlling the algorithm with keys
         cv2.imshow('img',self.img)
         a = cv2.waitKey(1)
-        if(a==ord('q')):
+        if a==ord('q'):
             print(self.counter)
             return 2
-        elif(a==ord('s') and self.first_read):
+        elif a==ord('s') and self.first_read:
             #This will start the detection
             self.first_read = False
         return 0
