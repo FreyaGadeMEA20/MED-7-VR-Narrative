@@ -10,14 +10,17 @@ public class Timeline_Change : MonoBehaviour
     public int switchTime;
     public int buffer;
     private int cd = 0;
-    private int pd;
+    private int st = 0;
     
+    public List<int> switchTimes;
     public List<PlayableDirector> playableDirectors;
     private PlayableDirector playableDirector_Current;
     private PlayableDirector playableDirector_Previous;
+
     
     private float pressRate;
     private float averagePressRate;
+
     private List<float> pressTimestamps;
     private List<float> pressRates;
 
@@ -79,27 +82,33 @@ public class Timeline_Change : MonoBehaviour
 
     public void SwitchTimeline()
     {
-        if (playableDirector_Current.time < switchTime)
+        if (playableDirector_Current.time < switchTimes[st])
         {
             cd += 1;
+            st += 1;
             if (cd % 2 == 0)
             {
-                cd +=1;
+                cd += 1;
+                st += 1;
             }
             playableDirector_Current = playableDirectors[cd];
             playableDirector_Current.Play();
             Debug.Log ("Timeline switched to " + cd + " at " + playableDirector_Current.time + " seconds");
+            Debug.Log ("Switchtime is now at " + switchTimes[st]);
         }   
-        else if (playableDirector_Current.time > switchTime)
+        else if (playableDirector_Current.time > switchTimes[st])
         {
             cd += 2;
+            st += 2;
             if (cd % 2 == 1)
             {
-                cd +=1;
+                cd += 1;
+                st += 1;
             }
             playableDirector_Current = playableDirectors[cd];
             playableDirector_Current.Play();
             Debug.Log ("Timeline switched to " + cd + " at " + playableDirector_Current.time + " seconds");
+            Debug.Log ("Switchtime is now at " + switchTimes[st]);
         }
     }
 
@@ -108,24 +117,30 @@ public class Timeline_Change : MonoBehaviour
         if (pressRate < averagePressRate)
         {
             cd += 1;
+            st += 1;
             if (cd % 2 == 0)
             {
-                cd +=1;
+                cd += 1;
+                st += 1;
             }
             playableDirector_Current = playableDirectors[cd];
             playableDirector_Current.Play();
             Debug.Log ("Timeline switched to " + cd + " at " + playableDirector_Current.time + " seconds with blink rate");
+            Debug.Log ("Switchtime is now at " + switchTimes[st]);
         }   
         else if (pressRate > averagePressRate)
         {
             cd += 2;
+            st += 2;
             if (cd % 2 == 1)
             {
                 cd += 1;
+                st += 1;
             }
             playableDirector_Current = playableDirectors[cd];
             playableDirector_Current.Play();
             Debug.Log ("Timeline switched to " + cd + " at " + playableDirector_Current.time + " seconds with blink rate");
+            Debug.Log ("Switchtime is now at " + switchTimes[st]);
         }
         Debug.Log("OBR Method was called");
     }
