@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.Timeline;
 
-[CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/SequenceTimelineScriptableObject", order = 1)]
+[CreateAssetMenu(fileName = "Sequence_", menuName = "ScriptableObjects/SequenceTimelineScriptableObject", order = 1)]
 public class SequenceTimelineScriptableObject : ScriptableObject
 {
-    public PlayableDirector currentDirector;
-    public PlayableDirector directorUnder;
-    public PlayableDirector directorOver;
+    //public PlayableDirector currentDirector;
+    public TimelineAsset currentTimeline;
+    public TimelineAsset directorUnder;
+    public TimelineAsset directorOver;
     public SequenceTimelineScriptableObject nextSequence;
 
     // POI timestamp.
@@ -20,10 +22,10 @@ public class SequenceTimelineScriptableObject : ScriptableObject
 
     public void SetNext(bool over){
         if(over){
-            nextSequence.currentDirector = directorOver;
+            nextSequence.currentTimeline = directorOver;
             nextSequence.switchTime = switchTimeO;
         } else {
-            nextSequence.currentDirector = directorUnder;
+            nextSequence.currentTimeline = directorUnder;
             nextSequence.switchTime = switchTimeU;
         }
     }

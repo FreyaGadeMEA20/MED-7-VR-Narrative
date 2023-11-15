@@ -17,9 +17,11 @@ public class Timeline_Change : MonoBehaviour
     
     public List<int> switchTimes;
     public List<PlayableDirector> playableDirectors;
-    private PlayableDirector playableDirector_Current;
+    //private PlayableDirector playableDirector_Current;
+    [SerializeField] PlayableDirector pd;
 
     [SerializeField] List<SequenceTimelineScriptableObject> sequences;
+
     SequenceTimelineScriptableObject currentSequence;
 
     private float pressRate;
@@ -34,8 +36,8 @@ public class Timeline_Change : MonoBehaviour
     void Start()
     {
         currentSequence = sequences[0];
-        playableDirector_Current = currentSequence.currentDirector; //playableDirectors[directorIndex];
-        playableDirector_Current.Play();
+        pd.playableAsset = currentSequence.currentTimeline; //playableDirectors[directorIndex];
+        pd.Play();
 
         pressTimestamps = new List<float>();
         pressRates = new List<float>();
@@ -52,6 +54,13 @@ public class Timeline_Change : MonoBehaviour
     }
 
     // Update is called once per frame
+    void Update(){
+        if(Input.GetKeyDown(KeyCode.Space)){
+            SwitchTimeline();
+            //pd.playableAsset = currentSequence.currentTimeline;
+            //pd.Play();
+        }
+    }
     public void SwitchTimeline()
     {
         //Debug.Log("The scene has been running for " + (int)Time.time + " seconds");
@@ -64,19 +73,19 @@ public class Timeline_Change : MonoBehaviour
         if (currentSequence.OBR){
             SwitchTimelineOBR();
 
-            Debug.Log ("Timeline switched to " + directorIndex+ " at " + playableDirector_Current.time + " seconds");
+            Debug.Log ("Timeline switched to " + directorIndex+ " at " + pd.time + " seconds");
         }
         else
         {
             SwitchTimelineBR();
 
-            Debug.Log ("Timeline switched to " +directorIndex+ " at " + playableDirector_Current.time + " seconds with blink rate");
+            Debug.Log ("Timeline switched to " +directorIndex+ " at " + pd.time + " seconds with blink rate");
         }
 
         currentSequence = currentSequence.nextSequence;
-        playableDirector_Current = currentSequence.currentDirector;//playableDirectors[directorIndex];
-        playableDirector_Current.Play();
-        Debug.Log ("Switchtime is now at " + switchTimes[switchTime]);
+        pd.playableAsset = currentSequence.currentTimeline;//playableDirectors[directorIndex];
+        pd.Play();
+        Debug.Log ("Switchtime is now at " + currentSequence.switchTime);
 
         /*if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -97,7 +106,7 @@ public class Timeline_Change : MonoBehaviour
 
     private void SwitchTimelineBR()
     {
-        if (playableDirector_Current.time < switchTimes[switchTime])
+        if (pd.time < currentSequence.switchTime)
         {
             currentSequence.SetNext(true);
             /*directorIndex+= 1;
@@ -182,7 +191,7 @@ public class Timeline_Change : MonoBehaviour
         //{
             //if (director != playableDirector_Current)
             //{
-        playableDirector_Current.Stop();
+        pd.Stop();
     }
 
     private void OnApplicationQuit()
