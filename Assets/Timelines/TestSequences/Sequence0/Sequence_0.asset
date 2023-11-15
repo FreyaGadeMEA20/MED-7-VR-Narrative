@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82d272d99a2a4414b8d108679320335e, type: 3}
+  m_Name: Sequence_0
+  m_EditorClassIdentifier: 
+  currentTimeline: {fileID: 11400000, guid: 54c8ec22ff41a264bbfc6f565037c736, type: 2}
+  directorUnder: {fileID: 11400000, guid: fca7b10ee56f01a468fba6264f301960, type: 2}
+  directorOver: {fileID: 11400000, guid: 42b971c25bc8e7d4eaced9f0fba690cc, type: 2}
+  nextSequence: {fileID: 11400000, guid: 4026b4ce8266c0e4686c895a7a460ebc, type: 2}
+  switchTime: 10
+  switchTimeU: 0
+  switchTimeO: 0
+  OBR: 0
