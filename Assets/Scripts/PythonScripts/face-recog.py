@@ -49,6 +49,7 @@ landmark_predict = dlib.shape_predictor('C:/Users/lukas/Downloads/shape_predicto
 while ret: 
     ret, frame = cam.read() 
 
+    print(frame)
     frame = imutils.resize(frame, width=640) 
 
     # converting frame to gray scale to pass 
@@ -76,7 +77,7 @@ while ret:
         # parsing the landmarks list to extract 
         # lefteye and righteye landmarks--# 
         lefteye = shape[L_start: L_end] 
-        righteye = shape[R_start:R_end] 
+        righteye = shape[R_start: R_end] 
 
         # Calculate the EAR 
         left_EAR = calculate_EAR(lefteye) 

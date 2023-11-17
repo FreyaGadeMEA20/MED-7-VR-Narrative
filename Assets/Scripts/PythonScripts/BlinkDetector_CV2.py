@@ -22,6 +22,7 @@ class BlinkDetector():
 
         self.cap = cv2.VideoCapture(int(cam))
         self.ret, self.img = self.cap.read()
+        print(self.img)
 
         #Variable store execution state
         self.first_read = True

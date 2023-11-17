@@ -10,6 +10,7 @@
 
 import UdpComms as U
 import BlinkDetector_CV2 as blink
+import BlinkDetector_DLIB as dlibBlink
 import time
 
 import os
@@ -19,6 +20,7 @@ load_dotenv()
 FACE_PATH = os.getenv('FACE_PATH')
 EYE_PATH = os.getenv('EYE_PATH')
 WEBCAM = os.getenv('WEBCAM')
+LANDMARK_PREDICT = os.getenv('LANDMARK_PREDICT')
 
 # Create UDP socket to use for sending (and receiving)
 sock = U.UdpComms(udpIP="127.0.0.1", portTX=8000, portRX=8001, enableRX=True, suppressWarnings=True)
@@ -26,20 +28,20 @@ sock = U.UdpComms(udpIP="127.0.0.1", portTX=8000, portRX=8001, enableRX=True, su
 i = 0
 
 print("Initializing blink")
-eyeT = blink.BlinkDetector(FACE_PATH,EYE_PATH,WEBCAM)
-
+#eyeT = blink.BlinkDetector(FACE_PATH,EYE_PATH,WEBCAM)
+eyeT = dlibBlink.BlinkDetector(LANDMARK_PREDICT, WEBCAM)
 while True:
     eyeStatus = eyeT.StartFeed()
     
     if eyeStatus == 1:
-        sock.SendData(str(eyeStatus)) # Send this string to other application
+        #sock.SendData(str(eyeStatus)) # Send this string to other application
         print("Blink detected. Sending to server")
     elif eyeStatus == 2:
-        sock.SendData(str(eyeStatus))
+        #sock.SendData(str(eyeStatus))
         print("Python Closed. Server disconnected")
     #i += 1
 
-    data = sock.ReadReceivedData() # read data
+    #data = sock.ReadReceivedData() # read data
 
     #if data != None: # if NEW data has been received since last ReadReceivedData function call
     #    print(data) # print new received data
