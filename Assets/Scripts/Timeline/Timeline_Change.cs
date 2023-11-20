@@ -16,13 +16,12 @@ public class Timeline_Change : MonoBehaviour
     private int switchTime = 0;
     
     public List<int> switchTimes;
-    public List<PlayableDirector> playableDirectors;
     //private PlayableDirector playableDirector_Current;
     [SerializeField] PlayableDirector pd;
 
     [SerializeField] List<SequenceTimelineScriptableObject> sequences;
 
-    SequenceTimelineScriptableObject currentSequence;
+    [SerializeField] SequenceTimelineScriptableObject currentSequence;
 
     private float pressRate;
     private float averagePressRate;
@@ -63,6 +62,14 @@ public class Timeline_Change : MonoBehaviour
     }
     public void SwitchTimeline()
     {
+        // Will not continue if the buffer time has not been reached.
+        // Can be made unique for each sequence if needed
+        if(pd.time < pd.duration/2){
+            return;
+        }
+        print("HELLO");
+
+
         //Debug.Log("The scene has been running for " + (int)Time.time + " seconds");
         //Debug.Log("The timeline has been running for " + (int)playableDirector_Current.time + " seconds");
         DirectorStop();

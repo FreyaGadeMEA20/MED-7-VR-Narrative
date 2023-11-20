@@ -32,8 +32,8 @@ class BlinkDetector():
         # define two constants, one for the eye aspect ratio to indicate
         # blink and then a second constant for the number of consecutive
         # frames the eye must be below the threshold
-        self.EYE_AR_THRESH = 0.53
-        self.EYE_AR_CONSEC_FRAMES = 2
+        self.EYE_AR_THRESH = 0.43
+        self.EYE_AR_CONSEC_FRAMES = 1
         # initialize the frame counters and the total number of blinks
         self.COUNTER = 0
         self.TOTAL = 0
@@ -130,12 +130,15 @@ class BlinkDetector():
             # otherwise, the eye aspect ratio is not below the blink
             # threshold
             else:
+                prevScore = self.TOTAL
                 # if the eyes were closed for a sufficient number of
                 # then increment the total number of blinks
                 if self.COUNTER >= self.EYE_AR_CONSEC_FRAMES:
                     self.TOTAL += 1
                 # reset the eye frame counter
                 self.COUNTER = 0
+                if self.TOTAL != prevScore:
+                    return 1
 
             # draw the total number of blinks on the frame along with
             # the computed eye aspect ratio for the frame
@@ -157,7 +160,7 @@ class BlinkDetector():
 
         cv2.imshow("Video", self.frame) 
         if cv2.waitKey(5) & 0xFF == ord('q'): 
-            print(self.counter)
+            print(self.COUNTER)
             return 2
         return 0
 

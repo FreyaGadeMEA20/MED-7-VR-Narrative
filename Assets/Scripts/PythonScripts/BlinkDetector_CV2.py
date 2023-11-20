@@ -22,7 +22,6 @@ class BlinkDetector():
 
         self.cap = cv2.VideoCapture(int(cam))
         self.ret, self.img = self.cap.read()
-        print(self.img)
 
         #Variable store execution state
         self.first_read = True
@@ -45,7 +44,7 @@ class BlinkDetector():
         gray = cv2.bilateralFilter(gray,5,1,1)
     
         #Detecting the face for region of image to be fed to eye classifier
-        faces = self.face_cascade.detectMultiScale(gray, 1.2, 5,minSize=(200,200))
+        faces = self.face_cascade.detectMultiScale(gray, 1.2, 5,minSize=(150,150))
         if len(faces) > 0:
             for (x,y,w,h) in faces:
                 self.img = cv2.rectangle(self.img,(x,y),(x+w,y+h),(0,255,0),2)
@@ -76,7 +75,7 @@ class BlinkDetector():
                         #print("no eyes detected-----")
                     elif not self.first_read and len(eyes)==0 :
                         #This will print on console and restart the algorithm
-                        print("Blink detected--------------")
+                        #print("Blink detected--------------")
                         #cv2.waitKey(3000)
                         self.first_read = True
                         self.has_blinked=True

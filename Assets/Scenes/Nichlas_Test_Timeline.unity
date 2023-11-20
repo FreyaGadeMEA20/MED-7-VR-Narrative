@@ -134,6 +134,8 @@ GameObject:
   - component: {fileID: 29181402}
   - component: {fileID: 29181401}
   - component: {fileID: 29181403}
+  - component: {fileID: 29181405}
+  - component: {fileID: 29181404}
   m_Layer: 0
   m_Name: TimelineController
   m_TagString: Untagged
@@ -189,7 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3cf173debaf2dd4a89f32918c595d8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buffer: 0
+  buffer: 20
   switchTimes: 
   playableDirectors:
   - {fileID: 29181401}
@@ -204,7 +206,37 @@ MonoBehaviour:
   pd: {fileID: 29181401}
   sequences:
   - {fileID: 11400000, guid: d6fe6ded3a52178469d3cb7f0219cce0, type: 2}
-  - {fileID: 11400000, guid: 4026b4ce8266c0e4686c895a7a460ebc, type: 2}
+  - {fileID: 11400000, guid: dd377726ab0db07469c49c6a7a195f07, type: 2}
+  - {fileID: 11400000, guid: d6fe6ded3a52178469d3cb7f0219cce0, type: 2}
+--- !u!114 &29181404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29181400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52395b768bff51b47b52a369e1d969a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTxStarted: 0
+  IP: 127.0.0.1
+  rxPort: 8000
+  txPort: 8001
+--- !u!114 &29181405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29181400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b35067901b18b5459f346f04e9b16a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timelineController: {fileID: 29181403}
 --- !u!1 &63418225
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,7 +289,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!320 &93472326
 PlayableDirector:
   m_ObjectHideFlags: 0
