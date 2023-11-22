@@ -192,22 +192,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer: 20
-  switchTimes: 
-  playableDirectors:
-  - {fileID: 29181401}
-  - {fileID: 93472326}
-  - {fileID: 1863902392}
-  - {fileID: 1955433076}
-  - {fileID: 1025243171}
-  - {fileID: 141697202}
-  - {fileID: 1114992951}
-  - {fileID: 638450249}
-  - {fileID: 334812425}
   pd: {fileID: 29181401}
-  sequences:
-  - {fileID: 11400000, guid: d6fe6ded3a52178469d3cb7f0219cce0, type: 2}
-  - {fileID: 11400000, guid: dd377726ab0db07469c49c6a7a195f07, type: 2}
-  - {fileID: 11400000, guid: d6fe6ded3a52178469d3cb7f0219cce0, type: 2}
+  sequencesSerialized:
+  - currentTimeline: {fileID: 29181401}
+    switchTime: 3
+    directorUnder: {fileID: 93472326}
+    switchTimeU: 4
+    directorOver: {fileID: 1863902392}
+    switchTimeO: 5
+    OBR: 0
+  - currentTimeline: {fileID: 0}
+    switchTime: 0
+    directorUnder: {fileID: 0}
+    switchTimeU: 0
+    directorOver: {fileID: 0}
+    switchTimeO: 0
+    OBR: 0
+  - currentTimeline: {fileID: 0}
+    switchTime: 0
+    directorUnder: {fileID: 0}
+    switchTimeU: 0
+    directorOver: {fileID: 0}
+    switchTimeO: 0
+    OBR: 0
 --- !u!114 &29181404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,7 +222,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 29181400}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 52395b768bff51b47b52a369e1d969a9, type: 3}
   m_Name: 
@@ -231,7 +238,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 29181400}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b35067901b18b5459f346f04e9b16a9, type: 3}
   m_Name: 
@@ -1894,7 +1901,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!320 &1863902392
 PlayableDirector:
   m_ObjectHideFlags: 0

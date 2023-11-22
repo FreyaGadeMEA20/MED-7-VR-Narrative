@@ -2,26 +2,37 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.Timeline;
 
 public class Timeline_Change : MonoBehaviour
 {
+    public int buffer = 3;    
+    public PlayableDirector pd;
 
-    public int SwitchTime{
-        get{return switchTime;}
+    [SerializeField] SequenceTimeline[] sequencesSerialized;
+    LinkedList<SequenceTimeline> sequences;
+    [Serializable]
+    public class SequenceTimeline{
+        [Header("Current Timeline")]
+        public PlayableDirector currentTimeline;
+        public int switchTime;
+        [Header("Next timeline for before the switch point")]
+        public PlayableDirector directorUnder;
+        public int switchTimeU;
+        [Header("Next timeline for after the switch point")]
+        public PlayableDirector directorOver;
+        public int switchTimeO;
+        //public SequenceTimeline nextSequence;
+
+        // POI timestamp.
+        [Header("Overall Blink Rate")]
+        public bool OBR;
     }
-    public int buffer;
-    private int directorIndex = 0;
-    private int switchTime = 0;
-    
-    public List<int> switchTimes;
-    //private PlayableDirector playableDirector_Current;
-    [SerializeField] PlayableDirector pd;
 
-    [SerializeField] List<SequenceTimelineScriptableObject> sequences;
-
-    [SerializeField] SequenceTimelineScriptableObject currentSequence;
+    [SerializeField] LinkedListNode<SequenceTimeline> currentSequence;
 
     private float pressRate;
     private float averagePressRate;
@@ -31,11 +42,21 @@ public class Timeline_Change : MonoBehaviour
 
     private StreamWriter csvWriter;
 
+
+    void Awake(){
+        sequences = new LinkedList<SequenceTimeline>();
+
+        foreach (SequenceTimeline item in sequencesSerialized)
+        {
+            sequences.AddLast(item);
+        }
+    }
+    
     // Start is called before the first frame update
     void Start()
     {
-        currentSequence = sequences[0];
-        pd.playableAsset = currentSequence.currentTimeline; //playableDirectors[directorIndex];
+        currentSequence = sequences.First;
+        pd = currentSequence.Value.currentTimeline; //playableDirectors[directorIndex];
         pd.Play();
 
         pressTimestamps = new List<float>();
@@ -64,35 +85,32 @@ public class Timeline_Change : MonoBehaviour
     {
         // Will not continue if the buffer time has not been reached.
         // Can be made unique for each sequence if needed
-        if(pd.time < pd.duration/2){
+        //buffer = (int) pd.duration/2;
+        if(pd.time < buffer){
             return;
         }
         print("HELLO");
 
 
-        //Debug.Log("The scene has been running for " + (int)Time.time + " seconds");
-        //Debug.Log("The timeline has been running for " + (int)playableDirector_Current.time + " seconds");
-        DirectorStop();
+        
 
         // Here we get the information needed in the CSV file.
         WriteToCSV();
 
-        if (currentSequence.OBR){
+        if (currentSequence.Value.OBR){
             SwitchTimelineOBR();
-
-            Debug.Log ("Timeline switched to " + directorIndex+ " at " + pd.time + " seconds");
         }
         else
         {
             SwitchTimelineBR();
-
-            Debug.Log ("Timeline switched to " +directorIndex+ " at " + pd.time + " seconds with blink rate");
         }
-
-        currentSequence = currentSequence.nextSequence;
-        pd.playableAsset = currentSequence.currentTimeline;//playableDirectors[directorIndex];
+        //Debug.Log("The scene has been running for " + (int)Time.time + " seconds");
+        //Debug.Log("The timeline has been running for " + (int)playableDirector_Current.time + " seconds");
+        DirectorStop();
+        currentSequence = currentSequence.Next;
+        pd = currentSequence.Value.currentTimeline;//playableDirectors[directorIndex];
         pd.Play();
-        Debug.Log ("Switchtime is now at " + currentSequence.switchTime);
+        Debug.Log ("Switchtime is now at " + currentSequence.Value.switchTime);
 
         /*if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -113,9 +131,10 @@ public class Timeline_Change : MonoBehaviour
 
     private void SwitchTimelineBR()
     {
-        if (pd.time < currentSequence.switchTime)
+        print(pd.time + " | " + currentSequence.Value.switchTime);
+        if (pd.time > currentSequence.Value.switchTime)
         {
-            currentSequence.SetNext(true);
+            SetNext(true);
             /*directorIndex+= 1;
             switchTime += 1;
             if (directorIndex % 2 == 0)
@@ -126,7 +145,7 @@ public class Timeline_Change : MonoBehaviour
         }   
         else
         {
-            currentSequence.SetNext(false);
+            SetNext(false);
             /*directorIndex+= 2;
             switchTime += 2;
             if (directorIndex % 2 == 1)
@@ -139,9 +158,9 @@ public class Timeline_Change : MonoBehaviour
 
     private void SwitchTimelineOBR()
     {   
-        if (pressRate < averagePressRate)
+        if (pressRate > averagePressRate)
         {
-            currentSequence.SetNext(true);
+            SetNext(true);
             /*directorIndex+= 1;
             switchTime += 1;
             if (directorIndex % 2 == 0)
@@ -152,7 +171,7 @@ public class Timeline_Change : MonoBehaviour
         }   
         else 
         {
-            currentSequence.SetNext(false);
+            SetNext(false);
             /*directorIndex+= 2;
             switchTime += 2;
             if (directorIndex % 2 == 1)
@@ -162,6 +181,18 @@ public class Timeline_Change : MonoBehaviour
             }*/
         }
         Debug.Log("OBR Method was called");
+    }
+
+    public void SetNext(bool over){
+        LinkedListNode<SequenceTimeline> nextNode = currentSequence.Next;
+        nextNode = nextNode == null ? sequences.First : nextNode;
+        if(over){
+            nextNode.Value.currentTimeline = currentSequence.Value.directorOver;
+            nextNode.Value.switchTime = currentSequence.Value.switchTimeO;
+        } else {
+            nextNode.Value.currentTimeline = currentSequence.Value.directorUnder;
+            nextNode.Value.switchTime = currentSequence.Value.switchTimeU;
+        }
     }
 
     void CalculateButtonPressRate()

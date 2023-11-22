@@ -15,8 +15,8 @@ MonoBehaviour:
   currentTimeline: {fileID: 11400000, guid: 54c8ec22ff41a264bbfc6f565037c736, type: 2}
   directorUnder: {fileID: 11400000, guid: fca7b10ee56f01a468fba6264f301960, type: 2}
   directorOver: {fileID: 11400000, guid: 42b971c25bc8e7d4eaced9f0fba690cc, type: 2}
-  nextSequence: {fileID: 11400000, guid: 4026b4ce8266c0e4686c895a7a460ebc, type: 2}
-  switchTime: 10
+  nextSequence: {fileID: 11400000, guid: dd377726ab0db07469c49c6a7a195f07, type: 2}
+  switchTime: 0
   switchTimeU: 0
   switchTimeO: 0
   OBR: 0
