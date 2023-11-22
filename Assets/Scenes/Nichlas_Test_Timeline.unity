@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3cf173debaf2dd4a89f32918c595d8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buffer: 20
+  buffer: 3
   pd: {fileID: 29181401}
   sequencesSerialized:
   - currentTimeline: {fileID: 29181401}
