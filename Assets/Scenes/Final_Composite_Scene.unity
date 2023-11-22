@@ -6522,7 +6522,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 183410898}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.006581481, y: 0.9779997, z: -0.20615141, w: 0.031223107}
+  m_LocalRotation: {x: 0.006581472, y: 0.97799975, z: -0.2061514, w: 0.031223064}
   m_LocalPosition: {x: 55.033504, y: 61.71925, z: -14.216987}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6866,7 +6866,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 252977852}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.9999853, z: 0.0054343166, w: 0}
+  m_LocalRotation: {x: -8.482479e-20, y: 0.9999853, z: 0.0054343166, w: -8.1725434e-22}
   m_LocalPosition: {x: 73.4, y: 61.505, z: -42.34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6991,7 +6991,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: "<mark=#000000 padding=\"0,0,0,0\">(You) We also got a single boot print,
+    from a size 16 men\u2019s shoe."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7001,7 +7002,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 0}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -7470,7 +7471,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 304073086}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.020542856, y: 0.93287194, z: -0.35556018, w: 0.05389765}
+  m_LocalRotation: {x: 0.020542856, y: 0.93287194, z: -0.35556018, w: 0.053897638}
   m_LocalPosition: {x: 73.4, y: 61.505, z: -42.34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7633,7 +7634,7 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 3e2c52797583eac4a8c2465668940828, type: 2}
-  m_InitialState: 1
+  m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
@@ -7802,6 +7803,8 @@ PlayableDirector:
     value: {fileID: 1128232459}
   - key: {fileID: -640416099270670031, guid: 3e2c52797583eac4a8c2465668940828, type: 2}
     value: {fileID: 253769578}
+  - key: {fileID: -1982892128385927362, guid: 3e2c52797583eac4a8c2465668940828, type: 2}
+    value: {fileID: 811390361}
   m_ExposedReferences:
     m_References:
     - a47f54b0bf66acd4c9f347b46dd827af: {fileID: 1641405479}
@@ -14152,6 +14155,112 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 781851332}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &811390361
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 811390362}
+  - component: {fileID: 811390365}
+  - component: {fileID: 811390364}
+  - component: {fileID: 811390363}
+  m_Layer: 0
+  m_Name: PC_Taxi
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &811390362
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 811390361}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.00020267065, y: 0.7055212, z: 0.7086882, w: -0.0009293107}
+  m_LocalPosition: {x: -0.0029999043, y: 0.4990008, z: -0.16800168}
+  m_LocalScale: {x: 0.082, y: 0.1, z: -0.045}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1535628930}
+  m_LocalEulerAnglesHint: {x: -89.738, y: 347.123, z: -167.032}
+--- !u!64 &811390363
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 811390361}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &811390364
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 811390361}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 9a1b30ffba9ce7a4195a66aa0543875d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &811390365
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 811390361}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &813694006
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14927,6 +15036,8 @@ PlayableDirector:
     value: {fileID: 0}
   - key: {fileID: 7299144044506566103, guid: 33ec93fc4941fa34a9a9b6ae11875895, type: 2}
     value: {fileID: 1128232459}
+  - key: {fileID: -8464639121742393325, guid: 33ec93fc4941fa34a9a9b6ae11875895, type: 2}
+    value: {fileID: 253769578}
   m_ExposedReferences:
     m_References:
     - a47f54b0bf66acd4c9f347b46dd827af: {fileID: 1641405479}
@@ -15543,7 +15654,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: "(You) We also got a single boot print, from a size 16 men\u2019s shoe."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -15553,7 +15664,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 0}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -23028,8 +23139,8 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.9433962, g: 0.8573447, b: 0.53844786, a: 1}
-  m_Intensity: 3
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 16.19
   m_Range: 14
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -25565,6 +25676,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 257659899}
+    - targetCorrespondingSourceObject: {fileID: 4379095583495028004, guid: d3411591107578a43bcc528093dfb3b2,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 811390362}
     - targetCorrespondingSourceObject: {fileID: 4379095583495028004, guid: d3411591107578a43bcc528093dfb3b2,
         type: 3}
       insertIndex: -1
@@ -29845,7 +29960,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1641405477}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.015443721, y: 0.766275, z: 0.018431436, w: 0.6420627}
+  m_LocalRotation: {x: -0.015443723, y: 0.766275, z: 0.018431433, w: 0.6420627}
   m_LocalPosition: {x: 75.7, y: 62.91, z: -52.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -32241,7 +32356,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1714810873}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.000000007510962, y: 0.9999853, z: 0.0054343166, w: 0.0000013821154}
+  m_LocalRotation: {x: -0.03055108, y: 0.8649942, z: 0.05306184, w: 0.49803233}
   m_LocalPosition: {x: 56.554996, y: 61.665, z: -42.843998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -35284,8 +35399,8 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.9433962, g: 0.8573447, b: 0.53844786, a: 1}
-  m_Intensity: 3
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 16.19
   m_Range: 14
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
