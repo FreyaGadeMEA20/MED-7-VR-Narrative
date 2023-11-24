@@ -73,3 +73,5 @@ crashlytics-build.properties
 
 # .env file should not be pushed
 /[Aa]ssets/[Ss]cripts/PythonScripts/.env
+
+.fake

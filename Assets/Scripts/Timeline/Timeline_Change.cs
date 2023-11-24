@@ -34,13 +34,18 @@ public class Timeline_Change : MonoBehaviour
 
     [SerializeField] LinkedListNode<SequenceTimeline> currentSequence;
 
+
+    // Variables for CSV
+    private StreamWriter csvWriter;
+    [SerializeField] string id;
+    private float totalTimeExperienced;
+    private bool POIAF;
+    private int blinks;
     private float pressRate;
     private float averagePressRate;
 
     private List<float> pressTimestamps;
     private List<float> pressRates;
-
-    private StreamWriter csvWriter;
 
 
     void Awake(){
@@ -63,13 +68,13 @@ public class Timeline_Change : MonoBehaviour
         pressRates = new List<float>();
 
         // Initialize the StreamWriter to write to a CSV file
-        string filePath = @"Assets\CSV Data\BlinkrateData.csv"; // Set your desired file path
+        string filePath = @"Assets\CSV Data\BlinkrateData"+id+".csv"; // Set your desired file path
         csvWriter = new StreamWriter(filePath, true);
 
          // Check if the file is empty (indicating the start of a new session) and write headers
         if (csvWriter.BaseStream.Length == 0)
         {
-            csvWriter.WriteLine("Time, CurrentScene, BlinkRate, AveragePressRate"); // Write header
+            csvWriter.WriteLine("User/ID, SceneNR, Blink, Green/Blue, TotalTime, TimeBeforeBlink, SceneTime, POI, DiffFromPOI, AverageTotalDiff, BlinkRate, AveragePressRate"); // Write header
         }
     }
 
@@ -90,22 +95,23 @@ public class Timeline_Change : MonoBehaviour
             return;
         }
         print("HELLO");
-
-
-        
+        blinks++;
 
         // Here we get the information needed in the CSV file.
         WriteToCSV();
 
         if (currentSequence.Value.OBR){
+            print("OBR");
             SwitchTimelineOBR();
         }
         else
         {
+            print("Non OBR");
             SwitchTimelineBR();
         }
         //Debug.Log("The scene has been running for " + (int)Time.time + " seconds");
         //Debug.Log("The timeline has been running for " + (int)playableDirector_Current.time + " seconds");
+        totalTimeExperienced += (float)pd.time;
         DirectorStop();
         currentSequence = currentSequence.Next;
         pd = currentSequence.Value.currentTimeline;//playableDirectors[directorIndex];
@@ -124,63 +130,23 @@ public class Timeline_Change : MonoBehaviour
         float currentTimestamp = Time.time;
         pressTimestamps.Add(currentTimestamp);
         CalculateButtonPressRate();
-
-        csvWriter.WriteLine($"{currentTimestamp}, {pressRate}, {averagePressRate}");
+        //"User/ID, SceneNR, Blink, Green/Blue, TotalTime, TimeBeforeBlink, SceneTime, POI, DiffFromPOI, AverageTotalDiff, BlinkRate, AveragePressRate"
+        csvWriter.WriteLine($"{id},{currentSequence.Value.currentTimeline},{blinks},{POIAF},{totalTimeExperienced},{pd.time},{currentSequence.Value.currentTimeline.time}, {currentSequence.Value.switchTime},{pd.time - currentSequence.Value.switchTime},{currentTimestamp}, {pressRate}, {averagePressRate}");
         csvWriter.Flush(); // Flush to ensure data is written immediately
     }
 
     private void SwitchTimelineBR()
     {
         print(pd.time + " | " + currentSequence.Value.switchTime);
-        if (pd.time > currentSequence.Value.switchTime)
-        {
-            SetNext(true);
-            /*directorIndex+= 1;
-            switchTime += 1;
-            if (directorIndex % 2 == 0)
-            {
-               directorIndex+= 1;
-                switchTime += 1;
-            }*/
-        }   
-        else
-        {
-            SetNext(false);
-            /*directorIndex+= 2;
-            switchTime += 2;
-            if (directorIndex % 2 == 1)
-            {
-               directorIndex+= 1;
-                switchTime += 1;
-            }*/
-        }
+        POIAF = pd.time > currentSequence.Value.switchTime;
+        SetNext(POIAF);
     }
 
     private void SwitchTimelineOBR()
     {   
-        if (pressRate > averagePressRate)
-        {
-            SetNext(true);
-            /*directorIndex+= 1;
-            switchTime += 1;
-            if (directorIndex % 2 == 0)
-            {
-               directorIndex+= 1;
-                switchTime += 1;
-            }*/
-        }   
-        else 
-        {
-            SetNext(false);
-            /*directorIndex+= 2;
-            switchTime += 2;
-            if (directorIndex % 2 == 1)
-            {
-                directorIndex+= 1;
-                switchTime += 1;
-            }*/
-        }
         Debug.Log("OBR Method was called");
+        POIAF = pressRate > averagePressRate;
+        SetNext(POIAF);
     }
 
     public void SetNext(bool over){
