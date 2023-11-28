@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Playables;
@@ -53,6 +54,10 @@ public class Timeline_Change : MonoBehaviour
     private List<float> pressTimestamps;
     private List<float> pressRates;
 
+    private List<float> ADBList;
+
+
+
 
     void Awake(){
         sequences = new LinkedList<SequenceTimeline>();
@@ -103,7 +108,8 @@ public class Timeline_Change : MonoBehaviour
         print("HELLO");
         blinks++;
 
-        // Here we get the information needed in the CSV file.
+        // Here we save the BlinkTimeDiff value in ADBList and get the information needed in the CSV file.
+        AddBlinkDiff();
         WriteToCSV();
 
         if (currentSequence.Value.ADB){
@@ -135,6 +141,7 @@ public class Timeline_Change : MonoBehaviour
     {
         float currentTimestamp = Time.time;
         pressTimestamps.Add(currentTimestamp);
+        
         CalculateButtonPressRate();
         //"User/ID, SceneNR, Blink, Green/Blue, TotalTime, TimeBeforeBlink, SceneTime, POI, DiffFromPOI, AverageTotalDiff, BlinkRate, AveragePressRate"
         csvWriter.WriteLine($"{id},{currentSequence.Value.currentTimeline},{blinks},{POIAF},{totalTimeExperienced},{pd.time},{currentSequence.Value.currentTimeline.time}, {currentSequence.Value.switchTime},{pd.time - currentSequence.Value.switchTime},{currentTimestamp}, {pressRate}, {averagePressRate}");
@@ -193,6 +200,25 @@ public class Timeline_Change : MonoBehaviour
 
         Debug.Log("Button Press Rate: " + pressRate);
         Debug.Log("Average Press Rate: " + averagePressRate);   
+    }
+
+    float GetAverageDifferenceBlink() // a bit much since ADBList.Average() seems shorter to write
+    {
+        return (ADBList.Average());
+    }
+
+    bool IsADBPositive() //checks if the average of the timestamps from Blink-POI is larger than 0 (and you would go the BL/Blue direction in story)
+    {
+        if(ADBList.Average()>= 0f){
+            return true;
+        } else{
+            return false;
+        }
+    }
+
+    void AddBlinkDiff() //Adds the BlinkTime-POI to a List of  Differences in BlinkTime-POI
+    {
+        ADBList.Add(Convert.ToSingle(pd.time - currentSequence.Value.switchTime));
     }
 
     public void DirectorStop()
