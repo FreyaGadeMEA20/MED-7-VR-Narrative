@@ -30,6 +30,9 @@ public class Timeline_Change : MonoBehaviour
         // POI timestamp.
         [Header("Overall Blink Rate")]
         public bool OBR;
+
+        [Header("Final")]
+        public bool final;
     }
 
     [SerializeField] LinkedListNode<SequenceTimeline> currentSequence;
