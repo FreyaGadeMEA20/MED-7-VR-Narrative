@@ -28,6 +28,9 @@ public class Timeline_Change : MonoBehaviour
         //public SequenceTimeline nextSequence;
 
         // POI timestamp.
+        [Header("Average Difference in BlinkTime-POI")]
+        public bool ADB;
+
         [Header("Overall Blink Rate")]
         public bool OBR;
 
@@ -103,13 +106,13 @@ public class Timeline_Change : MonoBehaviour
         // Here we get the information needed in the CSV file.
         WriteToCSV();
 
-        if (currentSequence.Value.OBR){
-            print("OBR");
-            SwitchTimelineOBR();
+        if (currentSequence.Value.ADB){
+            print("ADB");
+            SwitchTimelineADB();
         }
         else
         {
-            print("Non OBR");
+            print("Non ADB");
             SwitchTimelineBR();
         }
         //Debug.Log("The scene has been running for " + (int)Time.time + " seconds");
@@ -145,9 +148,9 @@ public class Timeline_Change : MonoBehaviour
         SetNext(POIAF);
     }
 
-    private void SwitchTimelineOBR()
+    private void SwitchTimelineADB()
     {   
-        Debug.Log("OBR Method was called");
+        Debug.Log("ADB Method was called");
         POIAF = pressRate > averagePressRate;
         SetNext(POIAF);
     }
