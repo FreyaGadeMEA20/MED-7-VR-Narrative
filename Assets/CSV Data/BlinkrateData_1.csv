@@ -1,0 +1,6 @@
+User/ID, SceneNR, Blink, Green/Blue, TotalTime, TimeBeforeBlink, SceneTime, POI, DiffFromPOI, AverageTotalDiff
+1, Timeline1 (UnityEngine.PlayableDirector), 1, False, 8,868372, 8,86837240215391, 74,533333333332, 0, 8,86837240215391, 8,868372
+1, Timeline2 (UnityEngine.PlayableDirector), 2, True, 34,32892, 25,4605483927298, 124,649999999999, 0, 25,4605483927298, 17,16446
+1, Timeline3_BL (UnityEngine.PlayableDirector), 3, True, 47,92387, 13,5949550019577, 135,216666666666, 0, 13,5949550019577, 15,97463
+1, Timeline4_OBL (UnityEngine.PlayableDirector), 4, True, 61,90055, 13,9766761055216, 400,066666666666, 0, 13,9766761055216, 15,47514
+1, Timeline5_BL (UnityEngine.PlayableDirector), 5, True, 65,15811, 3,2575638028793, 277,733333333332, 0, 3,2575638028793, 13,03162

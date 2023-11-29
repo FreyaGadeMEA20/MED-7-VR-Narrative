@@ -30,10 +30,8 @@ public class Timeline_Change : MonoBehaviour
 
         // POI timestamp.
         [Header("Average Difference in BlinkTime-POI")]
-        public bool ADB;
+        public bool UsesADB;
 
-        [Header("Overall Blink Rate")]
-        public bool OBR;
 
         [Header("Final")]
         public bool final;
@@ -48,13 +46,14 @@ public class Timeline_Change : MonoBehaviour
     private float totalTimeExperienced;
     private bool POIAF;
     private int blinks;
-    private float pressRate;
-    private float averagePressRate;
+    float ADB;
 
-    private List<float> pressTimestamps;
-    private List<float> pressRates;
+    //private float averagePressRate;
+    //private float pressRate;
+    //private List<float> pressTimestamps;
+    //private List<float> pressRates;
 
-    private List<float> ADBList;
+    private List<float> ADBList = new List<float>();
 
 
 
@@ -75,17 +74,14 @@ public class Timeline_Change : MonoBehaviour
         pd = currentSequence.Value.currentTimeline; //playableDirectors[directorIndex];
         pd.Play();
 
-        pressTimestamps = new List<float>();
-        pressRates = new List<float>();
-
         // Initialize the StreamWriter to write to a CSV file
-        string filePath = @"Assets\CSV Data\BlinkrateData"+id+".csv"; // Set your desired file path
+        string filePath = @"Assets\CSV Data\BlinkrateData_"+id+".csv"; // Set your desired file path
         csvWriter = new StreamWriter(filePath, true);
 
          // Check if the file is empty (indicating the start of a new session) and write headers
         if (csvWriter.BaseStream.Length == 0)
         {
-            csvWriter.WriteLine("User/ID, SceneNR, Blink, Green/Blue, TotalTime, TimeBeforeBlink, SceneTime, POI, DiffFromPOI, AverageTotalDiff, BlinkRate, AveragePressRate"); // Write header
+            csvWriter.WriteLine("User/ID, SceneNR, Blink, Green/Blue, TotalTime, TimeBeforeBlink, SceneTime, POI, DiffFromPOI, AverageTotalDiff"); // Write header
         }
     }
 
@@ -105,14 +101,15 @@ public class Timeline_Change : MonoBehaviour
         if(pd.time < buffer){
             return;
         }
-        print("HELLO");
+
         blinks++;
 
         // Here we save the BlinkTimeDiff value in ADBList and get the information needed in the CSV file.
         AddBlinkDiff();
+        totalTimeExperienced += (float)pd.time;
         WriteToCSV();
 
-        if (currentSequence.Value.ADB){
+        if (currentSequence.Value.UsesADB){
             print("ADB");
             SwitchTimelineADB();
         }
@@ -123,7 +120,6 @@ public class Timeline_Change : MonoBehaviour
         }
         //Debug.Log("The scene has been running for " + (int)Time.time + " seconds");
         //Debug.Log("The timeline has been running for " + (int)playableDirector_Current.time + " seconds");
-        totalTimeExperienced += (float)pd.time;
         DirectorStop();
         currentSequence = currentSequence.Next;
         pd = currentSequence.Value.currentTimeline;//playableDirectors[directorIndex];
@@ -139,12 +135,13 @@ public class Timeline_Change : MonoBehaviour
 
     private void WriteToCSV()
     {
-        float currentTimestamp = Time.time;
-        pressTimestamps.Add(currentTimestamp);
+        AddBlinkDiff();
+        ADB = GetAverageDifferenceBlink();
         
-        CalculateButtonPressRate();
-        //"User/ID, SceneNR, Blink, Green/Blue, TotalTime, TimeBeforeBlink, SceneTime, POI, DiffFromPOI, AverageTotalDiff, BlinkRate, AveragePressRate"
-        csvWriter.WriteLine($"{id},{currentSequence.Value.currentTimeline},{blinks},{POIAF},{totalTimeExperienced},{pd.time},{currentSequence.Value.currentTimeline.time}, {currentSequence.Value.switchTime},{pd.time - currentSequence.Value.switchTime},{currentTimestamp}, {pressRate}, {averagePressRate}");
+        //CalculateButtonPressRate();
+        //"User/ID, SceneNR, Blink, Green/Blue, TotalTime, TimeBeforeBlink, SceneTime, POI, DiffFromPOI, AverageTotalDiff"
+        //Debug.Log();
+        csvWriter.WriteLine($"{id}, {currentSequence.Value.currentTimeline}, {blinks}, {POIAF}, {totalTimeExperienced}, {pd.time}, {currentSequence.Value.currentTimeline.duration}, {currentSequence.Value.switchTime}, {pd.time - currentSequence.Value.switchTime}, {ADB}");
         csvWriter.Flush(); // Flush to ensure data is written immediately
     }
 
@@ -158,11 +155,13 @@ public class Timeline_Change : MonoBehaviour
     private void SwitchTimelineADB()
     {   
         Debug.Log("ADB Method was called");
-        POIAF = pressRate > averagePressRate;
+        POIAF = IsADBPositive();
         SetNext(POIAF);
     }
 
     public void SetNext(bool over){
+        if(currentSequence.Value.final)
+            return;
         LinkedListNode<SequenceTimeline> nextNode = currentSequence.Next;
         nextNode = nextNode == null ? sequences.First : nextNode;
         if(over){
@@ -174,7 +173,7 @@ public class Timeline_Change : MonoBehaviour
         }
     }
 
-    void CalculateButtonPressRate()
+    /*void CalculateButtonPressRate()
     {
         if (pressTimestamps.Count < 2)
         {
@@ -200,22 +199,24 @@ public class Timeline_Change : MonoBehaviour
 
         Debug.Log("Button Press Rate: " + pressRate);
         Debug.Log("Average Press Rate: " + averagePressRate);   
+    }*/
+
+
+    bool IsADBPositive() //checks if the average of the timestamps from Blink-POI is larger than 0 (and you would go the BL/Blue direction in story)
+    {
+        return GetAverageDifferenceBlink() >= 0f;
+        /*if(ADBList.Average()>= 0f){
+            return true;
+        } else{
+            return false;
+        }*/
     }
 
     float GetAverageDifferenceBlink() // a bit much since ADBList.Average() seems shorter to write
     {
-        return (ADBList.Average());
+        return ADBList.Average();
     }
-
-    bool IsADBPositive() //checks if the average of the timestamps from Blink-POI is larger than 0 (and you would go the BL/Blue direction in story)
-    {
-        if(ADBList.Average()>= 0f){
-            return true;
-        } else{
-            return false;
-        }
-    }
-
+    
     void AddBlinkDiff() //Adds the BlinkTime-POI to a List of  Differences in BlinkTime-POI
     {
         ADBList.Add(Convert.ToSingle(pd.time - currentSequence.Value.switchTime));
