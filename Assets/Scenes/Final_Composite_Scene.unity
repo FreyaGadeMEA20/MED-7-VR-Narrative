@@ -552,7 +552,7 @@ MonoBehaviour:
     switchTimeU: 0
     directorOver: {fileID: 732451558}
     switchTimeO: 0
-    OBR: 0
+    UsesADB: 0
     final: 0
   - currentTimeline: {fileID: 280763600}
     switchTime: 0
@@ -560,7 +560,7 @@ MonoBehaviour:
     switchTimeU: 0
     directorOver: {fileID: 1717907721}
     switchTimeO: 0
-    OBR: 0
+    UsesADB: 0
     final: 0
   - currentTimeline: {fileID: 280763600}
     switchTime: 0
@@ -568,7 +568,7 @@ MonoBehaviour:
     switchTimeU: 0
     directorOver: {fileID: 2069541039}
     switchTimeO: 0
-    OBR: 1
+    UsesADB: 0
     final: 0
   - currentTimeline: {fileID: 280763600}
     switchTime: 0
@@ -576,7 +576,7 @@ MonoBehaviour:
     switchTimeU: 0
     directorOver: {fileID: 336541905}
     switchTimeO: 0
-    OBR: 0
+    UsesADB: 0
     final: 0
   - currentTimeline: {fileID: 280763600}
     switchTime: 0
@@ -584,7 +584,7 @@ MonoBehaviour:
     switchTimeU: 0
     directorOver: {fileID: 336541905}
     switchTimeO: 0
-    OBR: 0
+    UsesADB: 0
     final: 0
   - currentTimeline: {fileID: 280763600}
     switchTime: 0
@@ -592,7 +592,7 @@ MonoBehaviour:
     switchTimeU: 0
     directorOver: {fileID: 1875806866}
     switchTimeO: 0
-    OBR: 0
+    UsesADB: 0
     final: 0
   - currentTimeline: {fileID: 280763600}
     switchTime: 0
@@ -600,7 +600,7 @@ MonoBehaviour:
     switchTimeU: 0
     directorOver: {fileID: 593081255}
     switchTimeO: 0
-    OBR: 0
+    UsesADB: 0
     final: 0
   - currentTimeline: {fileID: 280763600}
     switchTime: 0
@@ -608,7 +608,7 @@ MonoBehaviour:
     switchTimeU: 0
     directorOver: {fileID: 380702077}
     switchTimeO: 0
-    OBR: 0
+    UsesADB: 0
     final: 0
   - currentTimeline: {fileID: 280763600}
     switchTime: 0
@@ -616,7 +616,7 @@ MonoBehaviour:
     switchTimeU: 0
     directorOver: {fileID: 1622499814}
     switchTimeO: 0
-    OBR: 0
+    UsesADB: 0
     final: 0
   - currentTimeline: {fileID: 280763600}
     switchTime: 0
@@ -624,7 +624,7 @@ MonoBehaviour:
     switchTimeU: 0
     directorOver: {fileID: 918553913}
     switchTimeO: 0
-    OBR: 0
+    UsesADB: 0
     final: 0
   - currentTimeline: {fileID: 280763600}
     switchTime: 0
@@ -632,7 +632,7 @@ MonoBehaviour:
     switchTimeU: 0
     directorOver: {fileID: 1246759960}
     switchTimeO: 0
-    OBR: 0
+    UsesADB: 0
     final: 0
   - currentTimeline: {fileID: 280763600}
     switchTime: 0
@@ -640,7 +640,7 @@ MonoBehaviour:
     switchTimeU: 0
     directorOver: {fileID: 68328778}
     switchTimeO: 0
-    OBR: 0
+    UsesADB: 0
     final: 0
   - currentTimeline: {fileID: 280763600}
     switchTime: 0
@@ -648,7 +648,7 @@ MonoBehaviour:
     switchTimeU: 0
     directorOver: {fileID: 782416291}
     switchTimeO: 0
-    OBR: 0
+    UsesADB: 0
     final: 0
   - currentTimeline: {fileID: 280763600}
     switchTime: 0
@@ -656,7 +656,7 @@ MonoBehaviour:
     switchTimeU: 0
     directorOver: {fileID: 1124536643}
     switchTimeO: 0
-    OBR: 0
+    UsesADB: 0
     final: 0
   - currentTimeline: {fileID: 280763600}
     switchTime: 0
@@ -664,7 +664,7 @@ MonoBehaviour:
     switchTimeU: 0
     directorOver: {fileID: 1124536643}
     switchTimeO: 0
-    OBR: 0
+    UsesADB: 0
     final: 1
   id: 
 --- !u!4 &115220162
@@ -6955,7 +6955,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 183410898}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.006581483, y: 0.9779997, z: -0.20615141, w: 0.03122311}
+  m_LocalRotation: {x: 0.006581479, y: 0.9779997, z: -0.20615141, w: 0.031223092}
   m_LocalPosition: {x: 55.033504, y: 61.71925, z: -14.216987}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7125,7 +7125,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 206491353}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0026460742, y: 0.9638091, z: -0.26640847, w: 0.009572931}
+  m_LocalRotation: {x: 0.0026460649, y: 0.9638091, z: -0.26640847, w: 0.009572897}
   m_LocalPosition: {x: 52.892494, y: 58.228752, z: -44.35601}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7903,7 +7903,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 304073086}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.02054286, y: 0.93287194, z: -0.35556018, w: 0.053897657}
+  m_LocalRotation: {x: 0.020542856, y: 0.93287194, z: -0.35556018, w: 0.05389765}
   m_LocalPosition: {x: 73.4, y: 61.505, z: -42.34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -40002,22 +40002,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &3771387492199359989
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6119098300043613011}
-  m_Layer: 0
-  m_Name: Virtual Cams_Targets
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &3930251000135247110
 GameObject:
   m_ObjectHideFlags: 0
@@ -40348,7 +40332,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3930251000135247110}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0026460742, y: 0.9638091, z: -0.26640847, w: 0.009572931}
+  m_LocalRotation: {x: 0.0026460649, y: 0.9638091, z: -0.26640847, w: 0.009572897}
   m_LocalPosition: {x: 56.286, y: 61.118, z: -43.349}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -40514,21 +40498,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2317326022314969823}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &6119098300043613011
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3771387492199359989}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.3935046, y: -2.8892462, z: -1.0070131}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &6171937611296806678
 Transform:
@@ -41190,4 +41159,3 @@ SceneRoots:
   - {fileID: 1843215630}
   - {fileID: 910439353}
   - {fileID: 871610884}
-  - {fileID: 6119098300043613011}
