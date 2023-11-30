@@ -15,6 +15,8 @@ public class Timeline_Change : MonoBehaviour
 
     [SerializeField] SequenceTimeline[] sequencesSerialized;
     LinkedList<SequenceTimeline> sequences;
+
+    [SerializeField] EyeController eyeShaderEffect;
     [Serializable]
     public class SequenceTimeline{
         [Header("Current Timeline")]
@@ -103,6 +105,8 @@ public class Timeline_Change : MonoBehaviour
         }
 
         blinks++;
+        //eyeShaderEffect.EyeAnim_Close();
+        //StartCoroutine("Blink");
 
         // Here we save the BlinkTimeDiff value in ADBList and get the information needed in the CSV file.
         AddBlinkDiff();
@@ -124,6 +128,7 @@ public class Timeline_Change : MonoBehaviour
         currentSequence = currentSequence.Next;
         pd = currentSequence.Value.currentTimeline;//playableDirectors[directorIndex];
         pd.Play();
+        eyeShaderEffect.EyeAnim_Open();
         Debug.Log ("Switchtime is now at " + currentSequence.Value.switchTime);
 
         /*if (Input.GetKeyDown(KeyCode.Escape))

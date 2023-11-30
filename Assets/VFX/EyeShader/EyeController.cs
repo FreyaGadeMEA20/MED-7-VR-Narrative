@@ -23,7 +23,6 @@ public class EyeController : MonoBehaviour
     {
         _image.materialForRendering.SetFloat(_eyeWidth_ID, eyeWidth);
         _image.materialForRendering.SetFloat(_eyeHeight_ID, eyeHeight);
-
     }
 
 
