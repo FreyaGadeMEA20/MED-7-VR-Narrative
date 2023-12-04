@@ -41,6 +41,7 @@ public class Timeline_Change : MonoBehaviour
 
     [SerializeField] LinkedListNode<SequenceTimeline> currentSequence;
 
+    bool switching = false;
 
     // Variables for CSV
     private StreamWriter csvWriter;
@@ -72,6 +73,7 @@ public class Timeline_Change : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // TODO: needs to be updated so it doesn't play it immediately
         currentSequence = sequences.First;
         pd = currentSequence.Value.currentTimeline; //playableDirectors[directorIndex];
         pd.Play();
@@ -100,9 +102,12 @@ public class Timeline_Change : MonoBehaviour
         // Will not continue if the buffer time has not been reached.
         // Can be made unique for each sequence if needed
         //buffer = (int) pd.duration/2;
-        if(pd.time < buffer){
+        //Debug.Log((pd.time < buffer) + " | " + switching);
+        if((pd.time < buffer) || switching){
+            Debug.Log("Can't continue");
             return;
         }
+        //Debug.Log("Continue");
 
         blinks++;
         //eyeShaderEffect.EyeAnim_Close();
@@ -113,6 +118,26 @@ public class Timeline_Change : MonoBehaviour
         totalTimeExperienced += (float)pd.time;
         WriteToCSV();
 
+        
+        //Debug.Log("The scene has been running for " + (int)Time.time + " seconds");
+        //Debug.Log("The timeline has been running for " + (int)playableDirector_Current.time + " seconds");
+        //playableDirectors[directorIndex];
+        StartCoroutine(Blink());
+        //pd.Play();
+        //eyeShaderEffect.EyeAnim_Close();
+        //eyeShaderEffect.EyeAnim_Open();
+        Debug.Log ("Switchtime is now at " + currentSequence.Value.switchTime);
+
+        /*if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            // Close the StreamWriter when the game is finished
+            csvWriter.Close();
+        }*/
+    }
+
+    IEnumerator Blink(){
+        eyeShaderEffect.EyeAnim_Close();
+        switching = true;
         if (currentSequence.Value.UsesADB){
             print("ADB");
             SwitchTimelineADB();
@@ -122,20 +147,13 @@ public class Timeline_Change : MonoBehaviour
             print("Non ADB");
             SwitchTimelineBR();
         }
-        //Debug.Log("The scene has been running for " + (int)Time.time + " seconds");
-        //Debug.Log("The timeline has been running for " + (int)playableDirector_Current.time + " seconds");
+        yield return new WaitForSeconds(1f);
         DirectorStop();
         currentSequence = currentSequence.Next;
-        pd = currentSequence.Value.currentTimeline;//playableDirectors[directorIndex];
+        pd = currentSequence.Value.currentTimeline;
         pd.Play();
+        switching = false;
         eyeShaderEffect.EyeAnim_Open();
-        Debug.Log ("Switchtime is now at " + currentSequence.Value.switchTime);
-
-        /*if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            // Close the StreamWriter when the game is finished
-            csvWriter.Close();
-        }*/
     }
 
     private void WriteToCSV()
@@ -234,6 +252,21 @@ public class Timeline_Change : MonoBehaviour
             //if (director != playableDirector_Current)
             //{
         pd.Stop();
+    }
+
+    static int GetNodeIndex<T>(LinkedList<T> list, LinkedListNode<T> targetNode)
+    {
+        int index = 0;
+        foreach (var node in list)
+        {
+            if (EqualityComparer<T>.Default.Equals(node, targetNode.Value))
+            {
+                return index;
+            }
+            index++;
+        }
+
+        return -1; // Node not found
     }
 
     private void OnApplicationQuit()

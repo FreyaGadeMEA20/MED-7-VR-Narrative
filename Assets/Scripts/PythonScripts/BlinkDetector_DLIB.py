@@ -11,8 +11,6 @@ from scipy.spatial import distance as dist
 # manually too 
 from imutils import face_utils 
 
-import argparse
-
 class BlinkDetector():
     def __init__(self, landmark_predict, cam):
         """
@@ -32,8 +30,9 @@ class BlinkDetector():
         # define two constants, one for the eye aspect ratio to indicate
         # blink and then a second constant for the number of consecutive
         # frames the eye must be below the threshold
-        self.EYE_AR_THRESH = 0.43
-        self.EYE_AR_CONSEC_FRAMES = 1
+        self.EYE_AR_THRESH = 0.48
+        self.EYE_AR_CONSEC_FRAMES = 2
+
         # initialize the frame counters and the total number of blinks
         self.COUNTER = 0
         self.TOTAL = 0
