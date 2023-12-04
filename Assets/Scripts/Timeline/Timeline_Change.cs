@@ -22,6 +22,8 @@ public class Timeline_Change : MonoBehaviour
         [Header("Current Timeline")]
         public PlayableDirector currentTimeline;
         public int switchTime;
+        public bool overUnder;
+
         [Header("Next timeline for before the switch point")]
         public PlayableDirector directorUnder;
         public int switchTimeU;
@@ -34,32 +36,29 @@ public class Timeline_Change : MonoBehaviour
         [Header("Average Difference in BlinkTime-POI")]
         public bool UsesADB;
 
+        [Header("Override timeline change")]
+        public bool Override;
 
         [Header("Final")]
-        public bool final;
+        public bool finalSeq;
     }
 
+    // Keeping track of the current selected sequence
     [SerializeField] LinkedListNode<SequenceTimeline> currentSequence;
 
+    // Keeping track of whether the program is mid switching
     bool switching = false;
 
     // Variables for CSV
-    private StreamWriter csvWriter;
-    [SerializeField] string id;
-    private float totalTimeExperienced;
-    private bool POIAF;
-    private int blinks;
-    float ADB;
+    private StreamWriter csvWriter;     // Writing to a CSV File
+    [SerializeField] string id;         // Variable to keep track of the user
+    private float totalTimeExperienced; // The total time experienced in the experience
+    private bool POIAF;                 // Tracking whether they crossed the POI
+    private int blinks;                 // Amount of blinks
+    float ADB;                          // Average Difference in Blinks
 
-    //private float averagePressRate;
-    //private float pressRate;
-    //private List<float> pressTimestamps;
-    //private List<float> pressRates;
-
+    // List to keep track of the Average Difference in Blinks
     private List<float> ADBList = new List<float>();
-
-
-
 
     void Awake(){
         sequences = new LinkedList<SequenceTimeline>();
@@ -101,56 +100,52 @@ public class Timeline_Change : MonoBehaviour
     {
         // Will not continue if the buffer time has not been reached.
         // Can be made unique for each sequence if needed
-        //buffer = (int) pd.duration/2;
-        //Debug.Log((pd.time < buffer) + " | " + switching);
-        if((pd.time < buffer) || switching){
+        if((pd.time < buffer) || switching || currentSequence.Value.finalSeq){
             Debug.Log("Can't continue");
             return;
         }
-        //Debug.Log("Continue");
 
         blinks++;
-        //eyeShaderEffect.EyeAnim_Close();
-        //StartCoroutine("Blink");
 
         // Here we save the BlinkTimeDiff value in ADBList and get the information needed in the CSV file.
         AddBlinkDiff();
         totalTimeExperienced += (float)pd.time;
-        WriteToCSV();
 
-        
-        //Debug.Log("The scene has been running for " + (int)Time.time + " seconds");
-        //Debug.Log("The timeline has been running for " + (int)playableDirector_Current.time + " seconds");
-        //playableDirectors[directorIndex];
+        if(currentSequence.Value.finalSeq)
+            WriteToCSV();
+
         StartCoroutine(Blink());
-        //pd.Play();
-        //eyeShaderEffect.EyeAnim_Close();
-        //eyeShaderEffect.EyeAnim_Open();
-        Debug.Log ("Switchtime is now at " + currentSequence.Value.switchTime);
-
-        /*if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            // Close the StreamWriter when the game is finished
-            csvWriter.Close();
-        }*/
+        //Debug.Log ("Switchtime is now at " + currentSequence.Value.switchTime);
     }
 
     IEnumerator Blink(){
         eyeShaderEffect.EyeAnim_Close();
         switching = true;
-        if (currentSequence.Value.UsesADB){
-            print("ADB");
-            SwitchTimelineADB();
-        }
-        else
-        {
-            print("Non ADB");
-            SwitchTimelineBR();
+        if(currentSequence.Value.Override) {
+            print("Overriding switcher.");
+        } else {
+            if (currentSequence.Value.UsesADB){
+                print("ADB");
+                SwitchTimelineADB();
+            }
+            else
+            {
+                print("Non ADB");
+                SwitchTimelineBR();
+            }
         }
         yield return new WaitForSeconds(1f);
         DirectorStop();
+        if(currentSequence.Value.Override){
+            if(currentSequence.Value.overUnder){
+                SetNext(true);
+            } else {
+                SetNext(false);
+            }
+        } 
         currentSequence = currentSequence.Next;
         pd = currentSequence.Value.currentTimeline;
+        
         pd.Play();
         switching = false;
         eyeShaderEffect.EyeAnim_Open();
@@ -179,15 +174,18 @@ public class Timeline_Change : MonoBehaviour
     {   
         Debug.Log("ADB Method was called");
         POIAF = IsADBPositive();
+
         SetNext(POIAF);
     }
 
     public void SetNext(bool over){
-        if(currentSequence.Value.final)
+        if(currentSequence.Value.finalSeq)
             return;
         LinkedListNode<SequenceTimeline> nextNode = currentSequence.Next;
         nextNode = nextNode == null ? sequences.First : nextNode;
+        nextNode.Value.overUnder = POIAF;
         if(over){
+            Debug.Log("True");
             nextNode.Value.currentTimeline = currentSequence.Value.directorOver;
             nextNode.Value.switchTime = currentSequence.Value.switchTimeO;
         } else {
