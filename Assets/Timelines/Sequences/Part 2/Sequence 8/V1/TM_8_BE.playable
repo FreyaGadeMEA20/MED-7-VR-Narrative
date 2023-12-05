@@ -538,8 +538,8 @@ MonoBehaviour:
   m_Name: AnimationPlayableAsset(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 7400000, guid: 5abc69f1435360a45a315be7cae67825, type: 2}
-  m_Position: {x: -9.394131, y: 6.116501, z: -68.19309}
-  m_EulerAngles: {x: 0, y: -1423.49, z: 0}
+  m_Position: {x: -9.353827, y: 6.1747475, z: -68.28566}
+  m_EulerAngles: {x: 0, y: -1393.987, z: 0}
   m_UseTrackMatchFields: 1
   m_MatchTargetFields: 63
   m_RemoveStartOffset: 1
@@ -560,8 +560,8 @@ MonoBehaviour:
   m_Name: AnimationPlayableAsset(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 7400000, guid: 5abc69f1435360a45a315be7cae67825, type: 2}
-  m_Position: {x: -9.394131, y: 6.116501, z: -68.19309}
-  m_EulerAngles: {x: 0, y: -1423.49, z: 0}
+  m_Position: {x: -9.370666, y: 6.167862, z: -68.26332}
+  m_EulerAngles: {x: 0, y: -1391.118, z: 0}
   m_UseTrackMatchFields: 1
   m_MatchTargetFields: 63
   m_RemoveStartOffset: 1
@@ -755,8 +755,8 @@ MonoBehaviour:
   m_Name: AnimationPlayableAsset(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 7400000, guid: 5abc69f1435360a45a315be7cae67825, type: 2}
-  m_Position: {x: -9.3941345, y: 6.116501, z: -68.19309}
-  m_EulerAngles: {x: 0, y: -1423.49, z: 0}
+  m_Position: {x: -9.391763, y: 6.116726, z: -68.19817}
+  m_EulerAngles: {x: 0, y: -1391.828, z: 0}
   m_UseTrackMatchFields: 1
   m_MatchTargetFields: 63
   m_RemoveStartOffset: 1
@@ -777,8 +777,8 @@ MonoBehaviour:
   m_Name: AnimationPlayableAsset(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 7400000, guid: 5abc69f1435360a45a315be7cae67825, type: 2}
-  m_Position: {x: -9.394131, y: 6.116501, z: -68.19309}
-  m_EulerAngles: {x: 0, y: -1423.49, z: 0}
+  m_Position: {x: -9.38802, y: 6.142803, z: -68.2306}
+  m_EulerAngles: {x: 0, y: -1391.671, z: 0}
   m_UseTrackMatchFields: 1
   m_MatchTargetFields: 63
   m_RemoveStartOffset: 1
@@ -815,8 +815,8 @@ MonoBehaviour:
   m_Name: AnimationPlayableAsset(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 7400000, guid: 5abc69f1435360a45a315be7cae67825, type: 2}
-  m_Position: {x: -9.394131, y: 6.116501, z: -68.19309}
-  m_EulerAngles: {x: 0, y: -1423.49, z: 0}
+  m_Position: {x: -9.34483, y: 6.17889, z: -68.30587}
+  m_EulerAngles: {x: 0, y: -1397.997, z: 0}
   m_UseTrackMatchFields: 1
   m_MatchTargetFields: 63
   m_RemoveStartOffset: 1
@@ -880,8 +880,8 @@ MonoBehaviour:
   m_Name: AnimationPlayableAsset(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 7400000, guid: 5abc69f1435360a45a315be7cae67825, type: 2}
-  m_Position: {x: -9.394131, y: 6.116501, z: -68.19309}
-  m_EulerAngles: {x: 0, y: -1423.49, z: 0}
+  m_Position: {x: -9.337253, y: 6.18219, z: -68.30921}
+  m_EulerAngles: {x: 0, y: -1396.892, z: 0}
   m_UseTrackMatchFields: 1
   m_MatchTargetFields: 63
   m_RemoveStartOffset: 1
@@ -2407,8 +2407,8 @@ MonoBehaviour:
   m_Name: AnimationPlayableAsset(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 7400000, guid: 5abc69f1435360a45a315be7cae67825, type: 2}
-  m_Position: {x: -9.394131, y: 6.116501, z: -68.19309}
-  m_EulerAngles: {x: 0, y: -1423.49, z: 0}
+  m_Position: {x: -9.397937, y: 6.1759415, z: -68.36571}
+  m_EulerAngles: {x: 0, y: -1403.041, z: 0}
   m_UseTrackMatchFields: 1
   m_MatchTargetFields: 63
   m_RemoveStartOffset: 1
@@ -2429,8 +2429,8 @@ MonoBehaviour:
   m_Name: AnimationPlayableAsset(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 7400000, guid: 5abc69f1435360a45a315be7cae67825, type: 2}
-  m_Position: {x: -9.394131, y: 6.116501, z: -68.19309}
-  m_EulerAngles: {x: 0, y: -1423.49, z: 0}
+  m_Position: {x: -9.398855, y: 6.1212006, z: -68.20439}
+  m_EulerAngles: {x: 0, y: -1392.641, z: 0}
   m_UseTrackMatchFields: 1
   m_MatchTargetFields: 63
   m_RemoveStartOffset: 1
@@ -2468,8 +2468,8 @@ MonoBehaviour:
   m_Name: AnimationPlayableAsset(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 7400000, guid: 5abc69f1435360a45a315be7cae67825, type: 2}
-  m_Position: {x: -9.394131, y: 6.116501, z: -68.19309}
-  m_EulerAngles: {x: 0, y: -1423.49, z: 0}
+  m_Position: {x: -9.385461, y: 6.150875, z: -68.24337}
+  m_EulerAngles: {x: 0, y: -1392.232, z: 0}
   m_UseTrackMatchFields: 1
   m_MatchTargetFields: 63
   m_RemoveStartOffset: 1
@@ -2507,8 +2507,8 @@ MonoBehaviour:
   m_Name: AnimationPlayableAsset(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 7400000, guid: 5abc69f1435360a45a315be7cae67825, type: 2}
-  m_Position: {x: -9.394131, y: 6.116501, z: -68.19309}
-  m_EulerAngles: {x: 0, y: -1423.49, z: 0}
+  m_Position: {x: -9.380753, y: 6.155735, z: -68.24578}
+  m_EulerAngles: {x: 0, y: -1391.064, z: 0}
   m_UseTrackMatchFields: 1
   m_MatchTargetFields: 63
   m_RemoveStartOffset: 1
@@ -2529,8 +2529,8 @@ MonoBehaviour:
   m_Name: AnimationPlayableAsset(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 7400000, guid: 5abc69f1435360a45a315be7cae67825, type: 2}
-  m_Position: {x: -9.394131, y: 6.116501, z: -68.19309}
-  m_EulerAngles: {x: 0, y: -1423.49, z: 0}
+  m_Position: {x: -9.359181, y: 6.171776, z: -68.27662}
+  m_EulerAngles: {x: 0, y: -1392.633, z: 0}
   m_UseTrackMatchFields: 1
   m_MatchTargetFields: 63
   m_RemoveStartOffset: 1
@@ -2677,8 +2677,8 @@ MonoBehaviour:
   m_Name: AnimationPlayableAsset(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 7400000, guid: 5abc69f1435360a45a315be7cae67825, type: 2}
-  m_Position: {x: -9.394131, y: 6.116501, z: -68.19309}
-  m_EulerAngles: {x: 0, y: -1423.49, z: 0}
+  m_Position: {x: -9.395384, y: 6.1780357, z: -68.37194}
+  m_EulerAngles: {x: 0, y: -1404.842, z: 0}
   m_UseTrackMatchFields: 1
   m_MatchTargetFields: 63
   m_RemoveStartOffset: 1
@@ -2716,8 +2716,8 @@ MonoBehaviour:
   m_Name: AnimationPlayableAsset(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 7400000, guid: 5abc69f1435360a45a315be7cae67825, type: 2}
-  m_Position: {x: -9.394131, y: 6.116501, z: -68.19309}
-  m_EulerAngles: {x: 0, y: -1423.49, z: 0}
+  m_Position: {x: -9.3630705, y: 6.1716843, z: -68.27313}
+  m_EulerAngles: {x: 0, y: -1391.353, z: 0}
   m_UseTrackMatchFields: 1
   m_MatchTargetFields: 63
   m_RemoveStartOffset: 1
@@ -2819,8 +2819,8 @@ MonoBehaviour:
   m_Name: AnimationPlayableAsset(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 7400000, guid: 5abc69f1435360a45a315be7cae67825, type: 2}
-  m_Position: {x: -9.394131, y: 6.116501, z: -68.19309}
-  m_EulerAngles: {x: 0, y: -1423.49, z: 0}
+  m_Position: {x: -9.3857565, y: 6.1495247, z: -68.23225}
+  m_EulerAngles: {x: 0, y: -1391.247, z: 0}
   m_UseTrackMatchFields: 1
   m_MatchTargetFields: 63
   m_RemoveStartOffset: 1
@@ -2943,16 +2943,16 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: Sitting_Talking_1
   - m_Version: 1
-    m_Start: 11.533333333333333
-    m_ClipIn: 5.894519667699933
-    m_Asset: {fileID: 4960394338340191915}
-    m_Duration: 5.455480332300067
+    m_Start: 3.783333333333333
+    m_ClipIn: 0.6333333333333337
+    m_Asset: {fileID: -6345158634407430983}
+    m_Duration: 10.716666666666669
     m_TimeScale: 1
     m_ParentTrack: {fileID: 1999661423241263791}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
-    m_BlendInDuration: 2.9666666666666686
-    m_BlendOutDuration: 0.4388136656334005
+    m_BlendInDuration: 1.75
+    m_BlendOutDuration: 2.9666666666666686
     m_MixInCurve:
       serializedVersion: 2
       m_Curve:
@@ -3012,16 +3012,16 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: Sitting_Talking_1
   - m_Version: 1
-    m_Start: 3.783333333333333
-    m_ClipIn: 0.6333333333333337
-    m_Asset: {fileID: -6345158634407430983}
-    m_Duration: 10.716666666666669
+    m_Start: 11.533333333333333
+    m_ClipIn: 5.894519667699933
+    m_Asset: {fileID: 4960394338340191915}
+    m_Duration: 5.455480332300067
     m_TimeScale: 1
     m_ParentTrack: {fileID: 1999661423241263791}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
-    m_BlendInDuration: 1.75
-    m_BlendOutDuration: 2.9666666666666686
+    m_BlendInDuration: 2.9666666666666686
+    m_BlendOutDuration: 0.4388136656334005
     m_MixInCurve:
       serializedVersion: 2
       m_Curve:
@@ -3714,13 +3714,49 @@ MonoBehaviour:
     m_BlendOutDuration: 1.0666666666666629
     m_MixInCurve:
       serializedVersion: 2
-      m_Curve: []
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     m_MixOutCurve:
       serializedVersion: 2
-      m_Curve: []
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -4425,6 +4461,57 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: Sitting_Talking_1
   - m_Version: 1
+    m_Start: 227.81666666666666
+    m_ClipIn: 5.500000000000001
+    m_Asset: {fileID: 6217592757300278704}
+    m_Duration: 11.01666666666668
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: 1999661423241263791}
+    m_EaseInDuration: 0
+    m_EaseOutDuration: 0
+    m_BlendInDuration: 3.066666666666663
+    m_BlendOutDuration: -1
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 1
+    m_PreExtrapolationMode: 1
+    m_PostExtrapolationTime: Infinity
+    m_PreExtrapolationTime: 0
+    m_DisplayName: Sitting_Talking_1
+  - m_Version: 1
     m_Start: 191.41666666666666
     m_ClipIn: 5.500000000000001
     m_Asset: {fileID: -2782139858637245543}
@@ -4491,39 +4578,6 @@ MonoBehaviour:
     m_PostExtrapolationMode: 1
     m_PreExtrapolationMode: 1
     m_PostExtrapolationTime: 0
-    m_PreExtrapolationTime: 0
-    m_DisplayName: Sitting_Talking_1
-  - m_Version: 1
-    m_Start: 227.81666666666666
-    m_ClipIn: 5.500000000000001
-    m_Asset: {fileID: 6217592757300278704}
-    m_Duration: 11.01666666666668
-    m_TimeScale: 1
-    m_ParentTrack: {fileID: 1999661423241263791}
-    m_EaseInDuration: 0
-    m_EaseOutDuration: 0
-    m_BlendInDuration: 3.066666666666663
-    m_BlendOutDuration: -1
-    m_MixInCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_MixOutCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_BlendInCurveMode: 0
-    m_BlendOutCurveMode: 0
-    m_ExposedParameterNames: []
-    m_AnimationCurves: {fileID: 0}
-    m_Recordable: 0
-    m_PostExtrapolationMode: 1
-    m_PreExtrapolationMode: 1
-    m_PostExtrapolationTime: Infinity
     m_PreExtrapolationTime: 0
     m_DisplayName: Sitting_Talking_1
   m_Markers:
@@ -4593,8 +4647,8 @@ MonoBehaviour:
   m_Name: AnimationPlayableAsset(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 7400000, guid: 5abc69f1435360a45a315be7cae67825, type: 2}
-  m_Position: {x: -9.394131, y: 6.116501, z: -68.19309}
-  m_EulerAngles: {x: 0, y: -1423.49, z: 0}
+  m_Position: {x: -9.404011, y: 6.121647, z: -68.20977}
+  m_EulerAngles: {x: 0, y: -1393.591, z: 0}
   m_UseTrackMatchFields: 1
   m_MatchTargetFields: 63
   m_RemoveStartOffset: 1
@@ -4700,8 +4754,8 @@ MonoBehaviour:
   m_Name: AnimationPlayableAsset(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 7400000, guid: 5abc69f1435360a45a315be7cae67825, type: 2}
-  m_Position: {x: -9.394131, y: 6.116501, z: -68.19309}
-  m_EulerAngles: {x: 0, y: -1423.49, z: 0}
+  m_Position: {x: -9.399362, y: 6.129223, z: -68.21977}
+  m_EulerAngles: {x: 0, y: -1394.206, z: 0}
   m_UseTrackMatchFields: 1
   m_MatchTargetFields: 63
   m_RemoveStartOffset: 1
@@ -4722,8 +4776,8 @@ MonoBehaviour:
   m_Name: AnimationPlayableAsset(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 7400000, guid: 5abc69f1435360a45a315be7cae67825, type: 2}
-  m_Position: {x: -9.394131, y: 6.116501, z: -68.19309}
-  m_EulerAngles: {x: 0, y: -1423.49, z: 0}
+  m_Position: {x: -9.394899, y: 6.134468, z: -68.22138}
+  m_EulerAngles: {x: 0, y: -1393.133, z: 0}
   m_UseTrackMatchFields: 1
   m_MatchTargetFields: 63
   m_RemoveStartOffset: 1
@@ -4768,8 +4822,8 @@ MonoBehaviour:
   m_Name: AnimationPlayableAsset(Clone)(Clone)
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 7400000, guid: 5abc69f1435360a45a315be7cae67825, type: 2}
-  m_Position: {x: -9.394131, y: 6.116501, z: -68.19309}
-  m_EulerAngles: {x: 0, y: -1423.49, z: 0}
+  m_Position: {x: -9.39403, y: 6.116501, z: -68.19552}
+  m_EulerAngles: {x: 0, y: -1390.374, z: 0}
   m_UseTrackMatchFields: 1
   m_MatchTargetFields: 63
   m_RemoveStartOffset: 1
@@ -4807,8 +4861,8 @@ MonoBehaviour:
   m_Name: AnimationPlayableAsset(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 7400000, guid: 5abc69f1435360a45a315be7cae67825, type: 2}
-  m_Position: {x: -9.394131, y: 6.116501, z: -68.19309}
-  m_EulerAngles: {x: 0, y: -1423.49, z: 0}
+  m_Position: {x: -9.393136, y: 6.119068, z: -68.19997}
+  m_EulerAngles: {x: 0, y: -1391.489, z: 0}
   m_UseTrackMatchFields: 1
   m_MatchTargetFields: 63
   m_RemoveStartOffset: 1
@@ -4829,8 +4883,8 @@ MonoBehaviour:
   m_Name: AnimationPlayableAsset(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 7400000, guid: 5abc69f1435360a45a315be7cae67825, type: 2}
-  m_Position: {x: -9.394131, y: 6.116501, z: -68.19309}
-  m_EulerAngles: {x: 0, y: -1423.49, z: 0}
+  m_Position: {x: -9.350688, y: 6.1755295, z: -68.29435}
+  m_EulerAngles: {x: 0, y: -1395.419, z: 0}
   m_UseTrackMatchFields: 1
   m_MatchTargetFields: 63
   m_RemoveStartOffset: 1
@@ -4851,8 +4905,8 @@ MonoBehaviour:
   m_Name: AnimationPlayableAsset(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 7400000, guid: 5abc69f1435360a45a315be7cae67825, type: 2}
-  m_Position: {x: -9.394131, y: 6.116501, z: -68.19309}
-  m_EulerAngles: {x: 0, y: -1423.49, z: 0}
+  m_Position: {x: -9.410151, y: 6.1741447, z: -68.3511}
+  m_EulerAngles: {x: 0, y: -1401.702, z: 0}
   m_UseTrackMatchFields: 1
   m_MatchTargetFields: 63
   m_RemoveStartOffset: 1
@@ -4873,8 +4927,8 @@ MonoBehaviour:
   m_Name: AnimationPlayableAsset(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 7400000, guid: 5abc69f1435360a45a315be7cae67825, type: 2}
-  m_Position: {x: -9.394131, y: 6.116501, z: -68.19309}
-  m_EulerAngles: {x: 0, y: -1423.49, z: 0}
+  m_Position: {x: -9.388743, y: 6.136715, z: -68.22578}
+  m_EulerAngles: {x: 0, y: -1392.078, z: 0}
   m_UseTrackMatchFields: 1
   m_MatchTargetFields: 63
   m_RemoveStartOffset: 1
@@ -4921,8 +4975,8 @@ MonoBehaviour:
   m_Name: AnimationPlayableAsset(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 7400000, guid: 5abc69f1435360a45a315be7cae67825, type: 2}
-  m_Position: {x: -9.394131, y: 6.116501, z: -68.19309}
-  m_EulerAngles: {x: 0, y: -1423.49, z: 0}
+  m_Position: {x: -9.380108, y: 6.1618233, z: -68.25062}
+  m_EulerAngles: {x: 0, y: -1390.657, z: 0}
   m_UseTrackMatchFields: 1
   m_MatchTargetFields: 63
   m_RemoveStartOffset: 1
@@ -4943,8 +4997,8 @@ MonoBehaviour:
   m_Name: AnimationPlayableAsset(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 7400000, guid: 5abc69f1435360a45a315be7cae67825, type: 2}
-  m_Position: {x: -9.394131, y: 6.116501, z: -68.19309}
-  m_EulerAngles: {x: 0, y: -1423.49, z: 0}
+  m_Position: {x: -9.35427, y: 6.1743126, z: -68.290535}
+  m_EulerAngles: {x: 0, y: -1395.125, z: 0}
   m_UseTrackMatchFields: 1
   m_MatchTargetFields: 63
   m_RemoveStartOffset: 1
@@ -4965,8 +5019,8 @@ MonoBehaviour:
   m_Name: AnimationPlayableAsset(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   m_Clip: {fileID: 7400000, guid: 5abc69f1435360a45a315be7cae67825, type: 2}
-  m_Position: {x: -9.394131, y: 6.116501, z: -68.19309}
-  m_EulerAngles: {x: 0, y: -1423.49, z: 0}
+  m_Position: {x: -9.374017, y: 6.1665955, z: -68.25859}
+  m_EulerAngles: {x: 0, y: -1390.021, z: 0}
   m_UseTrackMatchFields: 1
   m_MatchTargetFields: 63
   m_RemoveStartOffset: 1
