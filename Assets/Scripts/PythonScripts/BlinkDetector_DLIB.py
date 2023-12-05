@@ -12,7 +12,7 @@ from scipy.spatial import distance as dist
 from imutils import face_utils 
 
 class BlinkDetector():
-    def __init__(self, landmark_predict, cam):
+    def __init__(self, landmark_predict, cam, eye_thresh):
         """
         Constructor
         :param landmark_predict: Directory to the face shape predictor file.
@@ -30,7 +30,7 @@ class BlinkDetector():
         # define two constants, one for the eye aspect ratio to indicate
         # blink and then a second constant for the number of consecutive
         # frames the eye must be below the threshold
-        self.EYE_AR_THRESH = 0.48
+        self.EYE_AR_THRESH = float(eye_thresh)
         self.EYE_AR_CONSEC_FRAMES = 2
 
         # initialize the frame counters and the total number of blinks
