@@ -30,7 +30,7 @@ i = 0
     
 countDLIB = 0
 
-start = time.time();
+start = time.time()
 
 print("Initializing blink")
 eyeT_dlib = dlibBlink.BlinkDetector(LANDMARK_PREDICT, WEBCAM, EYE_THRESH)
@@ -61,8 +61,8 @@ while True:
     if eyeStatus_dlib == 2:
         eyeT_dlib.Close()
         print(countDLIB, "blinks tracked")
-        end = time.time();
-        print(end-start, "second elapsed");
+        end = time.time()
+        print(end-start, "second elapsed")
         break
 
     time.sleep(.01)

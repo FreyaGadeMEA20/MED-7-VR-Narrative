@@ -112,7 +112,7 @@ public class Timeline_Change : MonoBehaviour
         AddBlinkDiff();
         totalTimeExperienced += (float)pd.time;
 
-        if(currentSequence.Value.finalSeq)
+        if(!currentSequence.Value.finalSeq)
             WriteToCSV();
 
         StartCoroutine(Blink());
