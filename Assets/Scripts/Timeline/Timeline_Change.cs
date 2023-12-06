@@ -52,6 +52,7 @@ public class Timeline_Change : MonoBehaviour
     // Variables for CSV
     private StreamWriter csvWriter;     // Writing to a CSV File
     [SerializeField] string id;         // Variable to keep track of the user
+    [SerializeField] string batch;      // Batch name
     private float totalTimeExperienced; // The total time experienced in the experience
     private bool POIAF;                 // Tracking whether they crossed the POI
     private int blinks;                 // Amount of blinks
@@ -78,7 +79,7 @@ public class Timeline_Change : MonoBehaviour
         pd.Play();
 
         // Initialize the StreamWriter to write to a CSV file
-        string filePath = @"Assets\CSV Data\BlinkrateData_"+id+".csv"; // Set your desired file path
+        string filePath = @"Assets\CSV Data\BlinkrateData_"+batch+".csv"; // Set your desired file path
         csvWriter = new StreamWriter(filePath, true);
 
          // Check if the file is empty (indicating the start of a new session) and write headers
