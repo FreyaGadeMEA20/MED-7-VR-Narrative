@@ -22,10 +22,6 @@ class BlinkDetector():
         # Camera
         self.cap = cv2.VideoCapture(int(cam)) 
         self.ret, self.frame = self.cap.read() 
-        # Variables 
-        #self.blink_thresh = 0.25
-        #self.succ_frame = 2
-        #self.count_frame = 0
 
         # define two constants, one for the eye aspect ratio to indicate
         # blink and then a second constant for the number of consecutive
@@ -54,13 +50,9 @@ class BlinkDetector():
         #args = vars(ap.parse_args())
         self.landmark_predict = dlib.shape_predictor(landmark_predict) 
 
-        # Count check
-        self.counter=0
-
-
     def calculate_EAR(self, eye): 
         """
-        :param eye: The eye information.
+        :param eye: The eye information. I.e. the 6 points of the eye from the shape predictor
         """
         # calculate the vertical distances 
         # euclidean distance is basically  
@@ -77,7 +69,7 @@ class BlinkDetector():
     
         return EAR
     
-    def StartFeed(self):
+    def UpdateFeed(self):
         self.ret, self.frame = self.cap.read() 
         self.frame = imutils.resize(self.frame, width=640) 
 
