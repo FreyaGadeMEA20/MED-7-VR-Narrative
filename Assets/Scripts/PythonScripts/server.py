@@ -39,7 +39,7 @@ while True:
 
     if eyeStatus_dlib == 1:
         if eyeStatus_dlib == 1:
-            print(eyeStatus_dlib,"dlib")
+            #print(eyeStatus_dlib,"dlib")
             countDLIB +=1
 
     
