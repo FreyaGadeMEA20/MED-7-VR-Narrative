@@ -35,17 +35,6 @@ public class UdpSocket : MonoBehaviour
 
     PythonTest pythonTest;
 
-
-    //IEnumerator SendDataCoroutine() // DELETE THIS: Added to show sending data from Unity to Python via UDP
-    //{
-    //    while (true)
-    //    {
-    //        SendData("Sent from Unity: " + i.ToString());
-    //        i++;
-    //        yield return new WaitForSeconds(1f);
-    //    }
-    //}
-
     public void SendData(string message) // Use to send data to Python
     {
         try

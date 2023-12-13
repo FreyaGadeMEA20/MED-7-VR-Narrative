@@ -157,9 +157,7 @@ public class Timeline_Change : MonoBehaviour
         AddBlinkDiff();
         ADB = GetAverageDifferenceBlink();
         
-        //CalculateButtonPressRate();
         //"User/ID, SceneNR, Blink, Green/Blue, TotalTime, TimeBeforeBlink, SceneTime, POI, DiffFromPOI, AverageTotalDiff"
-        //Debug.Log();
         csvWriter.WriteLine($"{id}, {currentSequence.Value.currentTimeline}, {blinks}, {POIAF}, {totalTimeExperienced}, {pd.time}, {currentSequence.Value.currentTimeline.duration}, {currentSequence.Value.switchTime}, {pd.time - currentSequence.Value.switchTime}, {ADB}");
         csvWriter.Flush(); // Flush to ensure data is written immediately
     }
