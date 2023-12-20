@@ -35,17 +35,6 @@ public class UdpSocket : MonoBehaviour
 
     PythonTest pythonTest;
 
-
-    //IEnumerator SendDataCoroutine() // DELETE THIS: Added to show sending data from Unity to Python via UDP
-    //{
-    //    while (true)
-    //    {
-    //        SendData("Sent from Unity: " + i.ToString());
-    //        i++;
-    //        yield return new WaitForSeconds(1f);
-    //    }
-    //}
-
     public void SendData(string message) // Use to send data to Python
     {
         try
@@ -94,7 +83,7 @@ public class UdpSocket : MonoBehaviour
                 IPEndPoint anyIP = new IPEndPoint(IPAddress.Any, 0);
                 byte[] data = client.Receive(ref anyIP);
                 string text = Encoding.UTF8.GetString(data);
-                print(">> " + text);
+                //print(">> " + text);
                 ProcessInput(text);
             }
             catch (Exception err)

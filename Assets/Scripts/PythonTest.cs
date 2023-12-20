@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEditor;
+using System;
 
 public class PythonTest : MonoBehaviour
 {
@@ -11,6 +13,8 @@ public class PythonTest : MonoBehaviour
     string tempStr = "Sent from Python xxxx";
     int numToSendToPython = 0;
     UdpSocket udpSocket;
+
+    public Timeline_Change timelineController;
 
     public void QuitApp()
     {
@@ -34,6 +38,10 @@ public class PythonTest : MonoBehaviour
 
     private void Start()
     {
+        if (timelineController == null){
+            print("NO TIMELINE CONTROLLER");
+            Application.Quit();
+        }
         udpSocket = FindObjectOfType<UdpSocket>();
         //sendToPythonText.text = "Send Number: " + numToSendToPython.ToString();
         print("Send Number: " + numToSendToPython.ToString());
@@ -42,5 +50,19 @@ public class PythonTest : MonoBehaviour
     void Update()
     {
         //pythonRcvdText.text = tempStr;
+        try
+        {
+            int result = int.Parse(tempStr);
+            if(result == 1){
+                //print(result);
+
+                timelineController.SwitchTimeline();
+            }
+            Console.WriteLine(result);
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine($"Unable to parse '{tempStr}'");
+        }
     }
 }
