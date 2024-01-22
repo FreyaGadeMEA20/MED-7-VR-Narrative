@@ -116,7 +116,6 @@ public class Timeline_Change : MonoBehaviour
             WriteToCSV();
 
         StartCoroutine(Blink());
-        //Debug.Log ("Switchtime is now at " + currentSequence.Value.switchTime);
     }
 
     IEnumerator Blink(){
